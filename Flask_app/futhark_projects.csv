@@ -1,0 +1,100 @@
+author,title,degree,month_year,pdf,university
+Christian Påbøl and Anders Holst,Two optimizations to GPU code generation in the Futhark compiler,MSc,February 2024,https://futhark-lang.org/student-projects/christian-anders-scan-reduce-msc-project.pdf
+Christian Marslev and Jonas Grønborg,Efficient Sequentialization of Parallelism,MSc,February 2024,https://futhark-lang.org/student-projects/jonas-christian-effseq-msc-thesis.pdf
+"Bjarke Pedersen, Oscar Nelin","General Array Locality Optimization
+by Permutation (GALOP)",MSc,January 2024,https://futhark-lang.org/student-projects/pedersen-nelin-msc-thesis.pdf
+"Nina Andrup Pedersen, Jakob Schneider Villumsen","ZKBoo on the GPU:
+Better soundness errors for a little extra",BSc,"July
+2023",https://futhark-lang.org/student-projects/zkboo-bsc-thesis.pdf
+"Lars Jensen, Chris Oliver Paulsen, Julian Jørgensen Teule","Translating Concepts of the Futhark Programming Language into an
+Extended π-Calculus",MSc,June 2023,https://futhark-lang.org/student-projects/pi-msc-thesis.pdf
+William Henrich Due,Parallel Parsing using Futhark,BSc,June 2023,https://futhark-lang.org/student-projects/william-bsc-thesis.pdf
+Rune Nielsen,Implementation of Graph Algorithms in Futhark,BSc,June 2023,https://futhark-lang.org/student-projects/rune-bsc-thesis.pdf
+Cornelius Sevald-Krause,"Flattening Irregular Nested Parallelism
+in Futhark",BSc,June 2023,https://futhark-lang.org/student-projects/cornelius-bsc-thesis.pdf
+Kasper Unn Weihe,"Convex Optimization and Parallel Computing for
+Portfolio Optimization",MSc,June 2023,https://futhark-lang.org/student-projects/kasper-msc-thesis.pdf
+Tjørn Lynghus,Data-parallel Implementation of Randomized Approximate Nearest Neighbours,BSc,June 2023,https://futhark-lang.org/student-projects/Tjorn-BSc-Approx-kNN.pdf
+Jóhann Utne and Henriette Naledi Winther Hansen,Solving TSP on the GPU based on heuristic algorithms,BSc,June 2023,https://futhark-lang.org/student-projects/BSc-Henriette-Johann-TSP.pdf
+Peter Kanstrup Larsen,Application of Probabilistic Machine Learning Methods for Protein Generation,MSc,June 2023,https://futhark-lang.org/student-projects/peter-larsen-msc-var-enc.pdf
+Emil Vilandt Rasmussen,Sparse Approximate Inverse - A Massively Parallel Implementation,BSc,June 2023,https://futhark-lang.org/student-projects/Emil-Rasmussen-BSc-SPAI.pdf
+Caroline Amalie Kierkegaard and Mikkel Willen,Parallel Implementation of the SPAI algorithm,BSc,June 2023,https://futhark-lang.org/student-projects/Caroline-Mikkel-BSc-SPAI.pdf
+Peter Kanstrup Larsen,Benchmarking Futhark-AD using MINPACK-2,No degree found,January 2023,https://futhark-lang.org/student-projects/peter-msc-project.pdf
+Søren Brix,"Reverse mode automatic differentiation of histograms
+in Futhark",MSc,July 2022,https://futhark-lang.org/student-projects/søren-msc-thesis.pdf
+Gilli Reynstind Fjallstein,"Extending automatic differentiation
+for an array language with nested parallelism",Msc,July 2022,https://futhark-lang.org/student-projects/gilli-msc-thesis.pdf
+Lotte Bruun and Ulrik Larsen,"Reverse Automatic Differentiation in
+Futhark",MSc,July 2022,https://futhark-lang.org/student-projects/lotte-ulrik-msc-thesis.pdf
+Philip Jon Børgesen,"Reducing Synchronous GPU Memory
+Transfers",MSc,July 2022,https://futhark-lang.org/student-projects/philip-børgesen-msc-thesis.pdf
+"W. Pema N. H. Malling, Louis Marott Normann, Oliver B. K. Petersen, Kristoffer A. Kortbæk","Extending Futhark’s
+multicore C backend to utilize SIMD using ISPC",BSc,June 2022,https://futhark-lang.org/student-projects/ispc-bsc-thesis.pdf
+Aleksander Junge,Reactive Benchmarks,BSc,June 2022,https://futhark-lang.org/student-projects/aleksander-bsc-thesis.pdf
+"Amar Topalovic, Walter Restelli-Nielsen, Kristian Olesen",Multiple-precision Integer Arithmetic,No degree found,January 2022,"https://futhark-lang.org/https://github.com/diku-dk/dpp-e2021-pub"">DPP</a> final project.
+January 2022. (<a href=""student-projects/dpp21-mpint.pdf"
+Andreas Nicolaisen,"Using Automatic Differentiation to Find
+Gradients for Recurrent Neural Networks in Futhark",MSc,January 2022,https://futhark-lang.org/student-projects/andreas-msc-thesis.pdf
+Kristian Knudsen Olesen,"Extracting Certified Futhark Code from
+Coq",BSc,November 2021,https://futhark-lang.org/student-projects/kristian-bsc-thesis.pdf
+Till Severin Grenzdörffer,"Unsupervised Clustering of Sparse
+Data in Futhark",MSc,September 2021,https://futhark-lang.org/student-projects/till-msc-thesis.pdf
+Baptiste Coudray,"MPI-Futhark: Distributed High-Performance
+Computing For People",BSc,August 2021,https://futhark-lang.org/student-projects/coudray-bsc-thesis.pdf
+Philip Rajani Lassen,WebAssembly Backends for Futhark,MSc,July 2021,https://futhark-lang.org/student-projects/philip-msc-thesis.pdf
+Nikolaj Hey Hinnerskov,"Massively Parallel Selection of Stable
+History Period in Change Detection for Time Series Data with
+Missing Values",BSc,June 2021,https://futhark-lang.org/student-projects/nikolaj-bsc-thesis.pdf
+Kristian Bøjer Andreasen,"Data-Parallel Coherency Sensitive
+Hashing for Approximate Nearest Neighbour Fields",MSc,June 2021,https://futhark-lang.org/student-projects/kristian-bøjer-andreasen-msc-thesis.pdf
+"Christian Charlie Virt, Jonathan Wraa-Hansen","Optimisation and
+GPU code generation of Stencils for Futhark",MSc,June 2021,https://futhark-lang.org/student-projects/christian-jonathan-msc-thesis.pdf
+Maya Saietz,Code Generation for Stencils in Futhark,No degree found,June 2021,https://futhark-lang.org/student-projects/maya-msc-thesis.pdf
+Morten Tychsen Clausen,"Regular Segmented Single-pass Scan in
+Futhark",MSc,June 2021,https://futhark-lang.org/student-projects/morten-msc-thesis.pdf
+"Kasper Unn Weihe, Kristian Quirin Hansen, Peter Kanstrup Larsen",Linear Algebra in Futhark,MSc,February 2021,https://futhark-lang.org/student-projects/kristian-kasper-peter-project.pdf
+Till Severin Grenzdörffer,"Accelerating Ocean Modelling: Adressing
+performance bottlenecks of the ocean modelling framework Veros",MSc,January 2021,https://futhark-lang.org/student-projects/till-msc-project.pdf
+Kristian Høi,"Parallel implementations of machine learning
+algorithms: Gradient boosted decision trees",MSc,January 2021,https://futhark-lang.org/student-projects/kristian-msc-thesis.pdf
+"Andreas Nicolaisen, Marco Aslak Persson","Implementing Single-Pass
+Scan in the Futhark Compiler",MSc,November 2020,https://futhark-lang.org/student-projects/marco-andreas-scan.pdf
+Duc Minh Tran,Multicore backend for Futhark,MSc,September 2020,https://futhark-lang.org/student-projects/duc-msc-thesis.pdf
+Emil Un Weihe,Support Vector Machines in Futhark,MSc,September 2020,https://futhark-lang.org/student-projects/emil-msc-thesis.pdf
+Michaël El Kharroubi,"Highly parallel algorithms on GPU with
+Futhark: Practical case with block ciphers",BSc,August 2020,https://futhark-lang.org/student-projects/michael-bsc-thesis.pdf
+"Johan Johansson, Ari von Nordenskjöld","Ray Tracing for Sensor
+Simulation using Parallel Functional Programming",MSc,June 2020,https://futhark-lang.org/student-projects/johan-ari-msc-thesis.pdf
+Ulrik Elmelund Petersen,"Optimizing the kNN algorithm for GPGPUs
+in Futhark",BSc,June 2020,https://futhark-lang.org/student-projects/ulrik-bsc-thesis.pdf
+"Mathias Friis Rasmussen, Jonas Kristensen, Jens Nissen-Juul Sørensen, Christian Dybdahl Troelsen","FutSpace - A Parallelizable
+Implementation of the Voxel Space Rendering Algorithm",BSc,June 2020,https://futhark-lang.org/student-projects/futspace-bsc-thesis.pdf
+"Ulrik Stuhr Larsen, Lotte Maria Bruun","A Language for Parallel
+Generation of L-Systems",BSc,June 2020,https://futhark-lang.org/student-projects/lotte-ulrik-bsc-thesis.pdf
+"Æmilie Cholewa-Madsen, Anders Lietzen Holst","Teaching the
+Futhark compiler block and register tiled matrix multiplication",BSc,June 2020,https://futhark-lang.org/student-projects/niels-write-construct.pdf
+Robert Schenck,Sum types in Futhark,MSc,December 2019,https://futhark-lang.org/student-projects/robert-msc-thesis.pdf
+"Henrik Urms, Anna Sofie Kiehn",Refinement types in Futhark,MSc,September 2019,https://futhark-lang.org/student-projects/kiehn-urms-msc-thesis.pdf
+Steffen Holst Larsen,Multi-GPU Futhark Using Parallel Streams,MSc,September 2019,https://futhark-lang.org/student-projects/steffen-msc-thesis.pdf
+Svend Lund Breddam,"Futhark Autotuners for Incremental
+Flattening",MSc,September 2019,https://futhark-lang.org/student-projects/svend-msc-thesis.pdf
+Steffen Holst Larsen,Futhark Vulkan Backend,MSc,January 2019,https://futhark-lang.org/student-projects/steffen-msc-project.pdf
+Jakob Stokholm Bertelsen,"Implementing a CUDA Backend for
+Futhark",BSc,January 2019,https://futhark-lang.org/student-projects/jakob-bsc-thesis.pdf
+Sune Hellfritzsch,Efficient Histogram Computation on GPGPUs,MSc,October 2018,https://futhark-lang.org/student-projects/hellfritzsch-msc-thesis.pdf
+Duc Minh Tran,"Implementation of a deep learning library in
+Futhark",BSc,August 2018,https://futhark-lang.org/student-projects/duc-bsc-thesis.pdf
+Mikkel Storgaard Knudsen,FShark: Futhark programming in FSharp,MSc,August 2018,https://futhark-lang.org/student-projects/mikkel-msc-thesis.pdf
+Marek Hlava and Martin Metaksov,"Accelerated Interest Rate Option
+Pricing using Trinomial Trees",MSc,August 2018,https://futhark-lang.org/student-projects/marek-martin-msc-thesis.pdf
+Kasper Abildtrup Hansen,"FFT Generator in Futhark: A prototype
+Futhark library using FFTW technniques",MSc,June 2018,https://futhark-lang.org/student-projects/kasper-hansen-genfft.pdf
+Frederik Thorøe,Auto-tuning of threshold-parameters in Futhark,BSc,June 2018,https://futhark-lang.org/student-projects/frederik-thoroe-bsc-thesis.pdf
+Mette Marie Kowalski,"Designing and Accelerating a Generic FFT
+Library in Futhark",BSc,June 2018,https://futhark-lang.org/student-projects/mette-kowalski-bsc-thesis.pdf
+Anders Kiel Hovgaard,"Higher-order functions for a
+high-performance programming language for GPUs",MSc,May 2018,https://futhark-lang.org/student-projects/hovgaard-msc-thesis.pdf
+Niels G. W. Serup,Memory Block Merging in Futhark,MSc,November 2017,https://futhark-lang.org/student-projects/niels-msc-thesis.pdf
+Rasmus Wriedt Larsen,"Generating Efficient Code for Futhark’s
+Segmented Redomap",MSc,March 2017,https://futhark-lang.org/student-projects/rasmus-msc-thesis.pdf
+Niels G. W. Serup,Extending Futhark with a write construct,MSc,June 2016,https://futhark-lang.org/student-projects/niels-write-construct.pdf
