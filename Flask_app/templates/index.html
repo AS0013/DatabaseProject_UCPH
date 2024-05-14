@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>University Project Catalogue</title>
+</head>
+<body>
+    <h1>University Project Catalogue</h1>
+    <form action="{{ url_for('search') }}" method="post">
+        <input type="text" name="query" placeholder="Search for a project...">
+        <button type="submit">Search</button>
+    </form>
+    <form action="{{ url_for('filter') }}" method="post">
+        <select name="level">
+            <option value="">Select Level</option>
+            <option value="Bachelor">Bachelor</option>
+            <option value="Master">Master</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    <ul>
+        {% for project in projects %}
+            <li>{{ project.title }} - {{ project.level }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
