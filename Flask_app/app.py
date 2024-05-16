@@ -4,8 +4,8 @@ import os
 app = Flask(__name__)
 
 projects = [
-    {"title": "Project A", "level": "Bachelor", "description": "Description of Project A", "author": "Author A", "date": "2021"},
-    {"title": "Project B", "level": "Master", "description": "Description of Project B", "author": "Author B", "date": "2020"},
+    {"title": "Project A", "level": "Bachelor", "description": "Description of Project A", "author": "Author A", "date": "2021", "id": 1},
+    {"title": "Project B", "level": "Master", "description": "Description of Project B", "author": "Author B", "date": "2020", "id": 2},
 ]
 
 
@@ -16,6 +16,16 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/project/<int:project_id>')
+def project(project_id):
+    
+    project = next((project for project in projects if project['id'] == project_id), None)
+    if project:
+        return render_template('projectPage.html', project=project)
+    else:
+        return render_template('404.html'), 404
+
 
 @app.route('/search', methods=['POST'])
 def search():
