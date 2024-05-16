@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Navbar container -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- About page container -->
+    <div class="cont_about">
+        <h1>About</h1>
+        
+        <div class="content">
+            <!-- Lengthy content goes here -->
+            <p>This Catalogue was developed as part of the Databases and Information-Systems course 2024 at the University of Copenhagen. </p>
+            <p>It is a simple web application that allows users to search and filter through a list of projects. The projects are stored in a postgresql database and are displayed on the website using Flask.</p> 
+            <p>Users can search for a project by typing in the search bar and clicking the search button. They can also filter the projects by selecting a level from the dropdown menu and clicking the filter button.</p>
+            <p class="spacer"></p>
+            <p><b>Developers:</b></p>
+            <p>Atta Samiullah - kuidhere</p>
+            <p>Nikolaj Sørensen - kuidhere</p>
+            <p>Anton Bressendorff - tdk223@alumni.ku.dk</p>
+            
+        </div>
+    </div>
+</body>
+</html> 
