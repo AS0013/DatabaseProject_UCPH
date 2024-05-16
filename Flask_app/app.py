@@ -13,6 +13,10 @@ projects = [
 def index():
     return render_template('index.html', projects=projects)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/search', methods=['POST'])
 def search():
     query = request.form['query']
