@@ -245,7 +245,7 @@ print(no_pdf_index)
 # add the pdf link for element 43 https://futhark-lang.org/student-projects/niels-write-construct.pdf
 list_of_pdfs[43] = 'https://futhark-lang.org/student-projects/niels-write-construct.pdf'
 
-print(list_of_pdfs)
+# print(list_of_pdfs)
 
 
 # print(no_uni_index)
@@ -263,6 +263,10 @@ df = pd.DataFrame({
     'pdf': list_of_pdfs
 })
 
-print(df)
+# print(df)
 
-df.to_csv('futhark_projects.csv', index=False)
+# df.to_csv('futhark_projects.csv', index=False)
+
+print("LIST OF PROJECTS...")
+
+print(projects_list)
