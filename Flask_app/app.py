@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 projects = [
     {"title": "Project A", "level": "Bachelor", "description": "Description of Project A", "author": "Author A", "date": "2021", "id": 1},
-    {"title": "Project B", "level": "Master", "description": "Description of Project B", "author": "Author B", "date": "2020", "id": 2},
+    {"title": "Project B", "level": "Master", "description": "Description of Project B", "author": "Author B", "date": "2020", "id": 5},
 ]
 
 
@@ -17,10 +17,10 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/project/<int:project_id>')
-def project(project_id):
+@app.route('/project/<string:title>')
+def project(title):
     
-    project = next((project for project in projects if project['id'] == project_id), None)
+    project = next((project for project in projects if project['title'].lower() == title.lower()), None)
     if project:
         return render_template('projectPage.html', project=project)
     else:

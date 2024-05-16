@@ -47,9 +47,6 @@
             <select name="university">
                 <option value="">Select University</option>
                 <option value="University of Copenhagen">University of Copenhagen</option>
-                <option value="University of Aarhus">University of Aarhus</option>
-                <option value="University of Aalborg">University of Aalborg</option>
-                <option value="Technical University of Denmark">Technical University of Denmark</option>
             </select>
             <button type="submit">Filter</button>
         </form>
@@ -57,7 +54,7 @@
         <div class="list">
             <ul>
                 {% for project in projects %}
-                    <li> <a href="{{url_for('project', project_id=loop.index)}}" ></a>{{ project.title }} - {{project.author}} - {{ project.level }} - {{ project.date }} - {{ project.university }}</li>
+                    <li> <a href="{{url_for('project', title=project.title)}}" >{{ project.title }} - {{project.author}} - {{ project.level }} - {{ project.date }} - {{ project.university }}</li></a>
                 {% endfor %}
             </ul>
         </div>

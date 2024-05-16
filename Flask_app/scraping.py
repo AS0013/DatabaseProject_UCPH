@@ -93,17 +93,33 @@ author_pattern = r'<p>(.*?)\s*:'
 
 
 list_of_authors = []
+list_of_DIKU_authors = []
+
+DIKU_project_list = []
+DIKU_key_words = ['DIKU']
+# getting only the projects that contain 'DIKU', 'Department of Computer Science', 'University of Copenhagen'
 
 for project in projects_list:
-    print(project)
-    print('----------------')
-    match = re.search(author_pattern, project , re.DOTALL)
-    if match:
-        author = match.group(1)
-        list_of_authors.append(author)
-        # print(author)
-    else:
-        list_of_authors.append('No author found')
+    if any(word in project for word in DIKU_key_words):
+        DIKU_project_list.append(project)
+
+print("DIKU PROJECTS-----------------")
+
+print(DIKU_project_list)
+print(len(DIKU_project_list))
+
+print("-----------------DIKU PROJECTS")
+
+# for project in projects_list:
+#     print(project)
+#     print('----------------')
+#     match = re.search(author_pattern, project , re.DOTALL)
+#     if match:
+#         author = match.group(1)
+#         list_of_authors.append(author)
+#         # print(author)
+#     else:
+#         list_of_authors.append('No author found')
 
 # finrd the index there is no author
 no_author_index = [index for index, author in enumerate(list_of_authors) if author == 'No author found']
@@ -243,9 +259,9 @@ no_pdf_index = [index for index, pdf in enumerate(list_of_pdfs) if pdf == 'No pd
 print(no_pdf_index)
 
 # add the pdf link for element 43 https://futhark-lang.org/student-projects/niels-write-construct.pdf
-list_of_pdfs[43] = 'https://futhark-lang.org/student-projects/niels-write-construct.pdf'
+# list_of_pdfs[43] = 'https://futhark-lang.org/student-projects/niels-write-construct.pdf'
 
-print(list_of_pdfs)
+# print(list_of_pdfs)
 
 
 # print(no_uni_index)
@@ -255,14 +271,18 @@ print(list_of_pdfs)
 
 # print(list_of_unis)
 # create a csv file with the information extracted 
-df = pd.DataFrame({
-    'author': list_of_authors,
-    'title': list_of_titles,
-    'degree': list_of_degrees,
-    'month_year': list_of_month_years,
-    'pdf': list_of_pdfs
-})
+# df = pd.DataFrame({
+#     'author': list_of_authors,
+#     'title': list_of_titles,
+#     'degree': list_of_degrees,
+#     'month_year': list_of_month_years,
+#     'pdf': list_of_pdfs
+# })
 
-print(df)
+# print(df)
 
-df.to_csv('futhark_projects.csv', index=False)
+# df.to_csv('futhark_projects.csv', index=False)
+
+# print("LIST OF PROJECTS...")
+
+# print(projects_list)
