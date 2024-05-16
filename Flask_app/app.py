@@ -4,14 +4,18 @@ import os
 app = Flask(__name__)
 
 projects = [
-    {"title": "Project A", "level": "Bachelor", "description": "Description of Project A"},
-    {"title": "Project B", "level": "Master", "description": "Description of Project B"},
+    {"title": "Project A", "level": "Bachelor", "description": "Description of Project A", "author": "Author A", "date": "2021"},
+    {"title": "Project B", "level": "Master", "description": "Description of Project B", "author": "Author B", "date": "2020"},
 ]
 
 
 @app.route('/')
 def index():
     return render_template('index.html', projects=projects)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/search', methods=['POST'])
 def search():

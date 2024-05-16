@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,5 +23,83 @@
             <li>{{ project.title }} - {{ project.level }}</li>
         {% endfor %}
     </ul>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>University Project Catalogue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <!-- container for nav bar for the website: Home, about -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- <nav class="navbar narbar-expand">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}"> Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}"> About </a>
+                </li>
+            </ul>
+        </div>
+    </nav> -->
+
+    <!-- container for the whole form. And the submit button will be at the end of the form -->
+    <div class="container">
+        <h1> Project Catalogue </h1>
+
+        <!-- form for searching projects -->
+        <form action="{{ url_for('search') }}" method="post">
+            <input type="text" name="query" placeholder="Search for a project...">
+            <button type="submit">Search</button>
+        </form>
+        <!-- filters a user can apply to find the right projects. Going by publishing year, degree level, and university -->
+        <form action="{{ url_for('filter') }}" method="post">
+            <select name="level">
+                <option value="">Select Level</option>
+                <option value="Bachelor">Bachelor</option>
+                <option value="Master">Master</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+        <!-- filter by year -->
+        <form action="{{ url_for('filter') }}" method="post">
+            <select name="year">
+                <option value="">Select Year</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+        <!-- filter by university -->
+        <form action="{{ url_for('filter') }}" method="post">
+            <select name="university">
+                <option value="">Select University</option>
+                <option value="University of Copenhagen">University of Copenhagen</option>
+                <option value="University of Aarhus">University of Aarhus</option>
+                <option value="University of Aalborg">University of Aalborg</option>
+                <option value="Technical University of Denmark">Technical University of Denmark</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+    <div class="list">
+        <ul>
+            {% for project in projects %}
+                <li>{{ project.title }} - {{project.author}} - {{ project.level }} - {{ project.date }} - {{ project.university }}</li>
+            {% endfor %}
+        </ul>
 </body>
 </html>
