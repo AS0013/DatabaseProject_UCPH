@@ -1,0 +1,13 @@
+/* Center the entire container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh; /* Full viewport height */
+}
+
+/* Optional: Style the forms for better visual separation */
+form {
+    margin-bottom: 20px; /* Space between forms */
+}

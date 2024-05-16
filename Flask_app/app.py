@@ -4,8 +4,8 @@ import os
 app = Flask(__name__)
 
 projects = [
-    {"title": "Project A", "level": "Bachelor", "description": "Description of Project A"},
-    {"title": "Project B", "level": "Master", "description": "Description of Project B"},
+    {"title": "Project A", "level": "Bachelor", "description": "Description of Project A", "author": "Author A", "date": "2021"},
+    {"title": "Project B", "level": "Master", "description": "Description of Project B", "author": "Author B", "date": "2020"},
 ]
 
 
