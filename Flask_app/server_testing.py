@@ -1,6 +1,8 @@
 import psycopg2
 import sqlalchemy
 
+
+# remember to change the password to your own password and the database to your own database name
 conn = psycopg2.connect(host="localhost", database="DIS_Test", user="postgres", password="Choudhary6583", port=5432)
 
 cur = conn.cursor()
