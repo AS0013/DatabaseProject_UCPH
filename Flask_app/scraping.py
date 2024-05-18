@@ -113,311 +113,311 @@ print("-----------------DIKU PROJECTS")
 
 # extracting all the DIKU authors
 
-for project in DIKU_project_list:
-    match = re.search(author_pattern, project , re.DOTALL)
-    if match:
-        author = match.group(1)
-        list_of_DIKU_authors.append(author)
-    else:
-        list_of_DIKU_authors.append('No author found')
-
-print("DIKU AUTHORS-----------------")
-
-print(list_of_DIKU_authors)
-
-print("-----------------DIKU AUTHORS")
-
-# conver the list of DIKU authors to a csv file, consisting of author,id
-# ----------------------------------------------
-# diku_authors_with_id = {}
-
-# id_counter = 1
-
-# for author in list_of_DIKU_authors:
-#     diku_authors_with_id[author] = id_counter
-#     id_counter += 1
-
-# author_id_list = list(diku_authors_with_id)
-
-# author_id_df = pd.DataFrame({
-#     'author': author_id_list,
-#     'id': list(diku_authors_with_id.values())
-# })
-
-# author_id_df.to_csv('small_diku_authors.csv', index=False)
-
-# ----------------------------------------------
-
-# extracting the titles of the DIKU projects
-
-title_pattern = r'<strong>(.*?)</strong>'
-list_of_DIKU_titles = []
-
-for project in DIKU_project_list:
-    match = re.search(title_pattern, project, re.DOTALL)
-    if match:
-        title = match.group(1)
-        list_of_DIKU_titles.append(title)
-    else:
-        list_of_DIKU_titles.append('No title found')
-
-print("DIKU TITLES-----------------")
-list_of_DIKU_titles = [title.replace('\n', ' ') for title in list_of_DIKU_titles]
-# print(list_of_DIKU_titles)
-# print(len(list_of_DIKU_titles))
-print("-----------------DIKU TITLES")
-
-# extracting the degree level of the DIKU projects
-
-degree_pattern = r'\b(?:BSc|MSc|Msc|Bsc)\b'
-list_of_DIKU_degrees = []
-
-for project in DIKU_project_list:
-    match = re.search(degree_pattern, project, re.DOTALL)
-    if match:
-        degree = match.group(0)
-        list_of_DIKU_degrees.append(degree)
-    else:
-        list_of_DIKU_degrees.append('No degree found')
-
-print("DIKU DEGREES-----------------")
-print(list_of_DIKU_degrees)
-
-# extracting the month and year of the DIKU projects
-
-month_year_pattern = r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s\d{4}'
-list_of_DIKU_month_years = []
-
-for project in DIKU_project_list:
-    match = re.search(month_year_pattern, project, re.DOTALL)
-    if match:
-        month_year = match.group(0)
-        list_of_DIKU_month_years.append(month_year)
-    else:
-        list_of_DIKU_month_years.append('No month year found')
-
-print("DIKU MONTH YEARS-----------------")
-print(list_of_DIKU_month_years)
-print(len(list_of_DIKU_month_years))
-
-# extracting just the year of the DIKU projects
-
-year_pattern = r'\d{4}'
-list_of_DIKU_years = []
-
-for month_year in list_of_DIKU_month_years:
-    match = re.search(year_pattern, month_year, re.DOTALL)
-    if match:
-        year = match.group(0)
-        list_of_DIKU_years.append(year)
-    else:
-        list_of_DIKU_years.append('No year found')
-
-print("DIKU YEARS-----------------")
-print(list_of_DIKU_years)
-print(len(list_of_DIKU_years))
-
-print("-----------------DIKU MONTH YEARS")
-
-# extracting the pdf link of the DIKU projects
-
-pdf_pattern = r'<a href="(.*?)">pdf</a>'
-list_of_DIKU_pdfs = []
-
-for project in DIKU_project_list:
-    match = re.search(pdf_pattern, project, re.DOTALL)
-    if match:
-        pdf = match.group(1)
-        pdf = 'https://futhark-lang.org/' + pdf
-        list_of_DIKU_pdfs.append(pdf)
-    else:
-        list_of_DIKU_pdfs.append('No pdf found')
-
-print("DIKU PDFS-----------------")
-print(list_of_DIKU_pdfs)
-print(len(list_of_DIKU_pdfs))
-print("-----------------DIKU PDFS")
-
-project_id = [i for i in range(1, len(list_of_DIKU_authors) + 1)]
-project_uni = ['DIKU' for i in range(len(list_of_DIKU_authors))]
-
-# create a csv file with the information extracted
-diku_df = pd.DataFrame({
-    'title': list_of_DIKU_titles,
-    'degree': list_of_DIKU_degrees,
-    'pdf': list_of_DIKU_pdfs,
-    'year': list_of_DIKU_years,
-    'university': project_uni,
-    'id': project_id,
-})
-
-
-diku_df.to_csv('small_diku_projects.csv', index=False)
-
-
-# for project in projects_list:
-#     print(project)
-#     print('----------------')
+# for project in DIKU_project_list:
 #     match = re.search(author_pattern, project , re.DOTALL)
 #     if match:
 #         author = match.group(1)
-#         list_of_authors.append(author)
-#         # print(author)
+#         list_of_DIKU_authors.append(author)
 #     else:
-#         list_of_authors.append('No author found')
+#         list_of_DIKU_authors.append('No author found')
 
-# finrd the index there is no author
-no_author_index = [index for index, author in enumerate(list_of_authors) if author == 'No author found']
+# print("DIKU AUTHORS-----------------")
 
-# print(no_author_index)
+# print(list_of_DIKU_authors)
 
-# print(list_of_authors)
+# print("-----------------DIKU AUTHORS")
 
-# remove \n and \t from the author name
-list_of_authors = [author.replace('\n', ' ').replace('\t', ' ') for author in list_of_authors]
+# # conver the list of DIKU authors to a csv file, consisting of author,id
+# # ----------------------------------------------
+# # diku_authors_with_id = {}
 
-# print(list_of_authors)
+# # id_counter = 1
 
-# regular expression to get the title of the project
-title_pattern = r'<strong>(.*?)</strong>'
+# # for author in list_of_DIKU_authors:
+# #     diku_authors_with_id[author] = id_counter
+# #     id_counter += 1
 
-list_of_titles = []
+# # author_id_list = list(diku_authors_with_id)
 
-for project in projects_list:
-    match = re.search(title_pattern, project, re.DOTALL)
-    if match:
-        title = match.group(1)
-        list_of_titles.append(title)
-    else:
-        list_of_titles.append('No title found')
+# # author_id_df = pd.DataFrame({
+# #     'author': author_id_list,
+# #     'id': list(diku_authors_with_id.values())
+# # })
 
-# print(list_of_titles)
+# # author_id_df.to_csv('small_diku_authors.csv', index=False)
 
-# find the index there is no title
+# # ----------------------------------------------
 
-no_title_index = [index for index, title in enumerate(list_of_titles) if title == 'No title found']
+# # extracting the titles of the DIKU projects
 
-if(len(no_title_index) > 0):
-    print(no_title_index)
-else:
-    print('ALL TITLES FOUND')
+# title_pattern = r'<strong>(.*?)</strong>'
+# list_of_DIKU_titles = []
 
-# print(len(list_of_authors) == len(list_of_titles))
+# for project in DIKU_project_list:
+#     match = re.search(title_pattern, project, re.DOTALL)
+#     if match:
+#         title = match.group(1)
+#         list_of_DIKU_titles.append(title)
+#     else:
+#         list_of_DIKU_titles.append('No title found')
 
-# extracting supervisor name from the pdf file in the diku projects
+# print("DIKU TITLES-----------------")
+# list_of_DIKU_titles = [title.replace('\n', ' ') for title in list_of_DIKU_titles]
+# # print(list_of_DIKU_titles)
+# # print(len(list_of_DIKU_titles))
+# print("-----------------DIKU TITLES")
 
-list_of_supervisors = ['Cosmin Eugen Oancea', 'Troels Henriksen', 'Martin Elsman']
+# # extracting the degree level of the DIKU projects
 
-supervisor_id = [i for i in range(1, len(list_of_supervisors) + 1)]	
+# degree_pattern = r'\b(?:BSc|MSc|Msc|Bsc)\b'
+# list_of_DIKU_degrees = []
 
-supervisor_df = pd.DataFrame({
-    'supervisor': list_of_supervisors,
-    'id': supervisor_id
-})
+# for project in DIKU_project_list:
+#     match = re.search(degree_pattern, project, re.DOTALL)
+#     if match:
+#         degree = match.group(0)
+#         list_of_DIKU_degrees.append(degree)
+#     else:
+#         list_of_DIKU_degrees.append('No degree found')
 
-supervisor_df.to_csv('small_diku_supervisors.csv', index=False)
+# print("DIKU DEGREES-----------------")
+# print(list_of_DIKU_degrees)
+
+# # extracting the month and year of the DIKU projects
+
+# month_year_pattern = r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s\d{4}'
+# list_of_DIKU_month_years = []
+
+# for project in DIKU_project_list:
+#     match = re.search(month_year_pattern, project, re.DOTALL)
+#     if match:
+#         month_year = match.group(0)
+#         list_of_DIKU_month_years.append(month_year)
+#     else:
+#         list_of_DIKU_month_years.append('No month year found')
+
+# print("DIKU MONTH YEARS-----------------")
+# print(list_of_DIKU_month_years)
+# print(len(list_of_DIKU_month_years))
+
+# # extracting just the year of the DIKU projects
+
+# year_pattern = r'\d{4}'
+# list_of_DIKU_years = []
+
+# for month_year in list_of_DIKU_month_years:
+#     match = re.search(year_pattern, month_year, re.DOTALL)
+#     if match:
+#         year = match.group(0)
+#         list_of_DIKU_years.append(year)
+#     else:
+#         list_of_DIKU_years.append('No year found')
+
+# print("DIKU YEARS-----------------")
+# print(list_of_DIKU_years)
+# print(len(list_of_DIKU_years))
+
+# print("-----------------DIKU MONTH YEARS")
+
+# # extracting the pdf link of the DIKU projects
+
+# pdf_pattern = r'<a href="(.*?)">pdf</a>'
+# list_of_DIKU_pdfs = []
+
+# for project in DIKU_project_list:
+#     match = re.search(pdf_pattern, project, re.DOTALL)
+#     if match:
+#         pdf = match.group(1)
+#         pdf = 'https://futhark-lang.org/' + pdf
+#         list_of_DIKU_pdfs.append(pdf)
+#     else:
+#         list_of_DIKU_pdfs.append('No pdf found')
+
+# print("DIKU PDFS-----------------")
+# print(list_of_DIKU_pdfs)
+# print(len(list_of_DIKU_pdfs))
+# print("-----------------DIKU PDFS")
+
+# project_id = [i for i in range(1, len(list_of_DIKU_authors) + 1)]
+# project_uni = ['DIKU' for i in range(len(list_of_DIKU_authors))]
+
+# # create a csv file with the information extracted
+# diku_df = pd.DataFrame({
+#     'title': list_of_DIKU_titles,
+#     'degree': list_of_DIKU_degrees,
+#     'pdf': list_of_DIKU_pdfs,
+#     'year': list_of_DIKU_years,
+#     'university': project_uni,
+#     'id': project_id,
+# })
 
 
+# diku_df.to_csv('small_diku_projects.csv', index=False)
 
 
-# regular expression to get the degree level
-degree_pattern = r'\b(?:BSc|MSc|Msc|Bsc)\b'
+# # for project in projects_list:
+# #     print(project)
+# #     print('----------------')
+# #     match = re.search(author_pattern, project , re.DOTALL)
+# #     if match:
+# #         author = match.group(1)
+# #         list_of_authors.append(author)
+# #         # print(author)
+# #     else:
+# #         list_of_authors.append('No author found')
 
-list_of_degrees = []
+# # finrd the index there is no author
+# no_author_index = [index for index, author in enumerate(list_of_authors) if author == 'No author found']
 
-for project in projects_list:
-    match = re.search(degree_pattern, project, re.DOTALL)
-    if match:
-        degree = match.group(0)
-        list_of_degrees.append(degree)
-    else:
-        list_of_degrees.append('No degree found')
+# # print(no_author_index)
 
-no_degree_index = [index for index, degree in enumerate(list_of_degrees) if degree == 'No degree found']
+# # print(list_of_authors)
 
-if(len(no_degree_index) > 0):
-    print(no_degree_index)
-else:
-    print('ALL DEGREES FOUND')
+# # remove \n and \t from the author name
+# list_of_authors = [author.replace('\n', ' ').replace('\t', ' ') for author in list_of_authors]
 
-print(projects_list[21])
+# # print(list_of_authors)
 
-# this is project 19 which doesnt seem to get the author name even though the pattern is correct
-# <p>W. Pema N. H. Malling, Louis Marott Normann, Oliver
-# B. K. Petersen, Kristoffer A. Kortbæk: <strong>Extending Futhark’s
-# multicore C backend to utilize SIMD using ISPC</strong>. BSc thesis. Department of
-# Computer Science, University of Copenhagen.
-# June 2022. (<a href="student-projects/ispc-bsc-thesis.pdf">pdf</a>)</p>
+# # regular expression to get the title of the project
+# title_pattern = r'<strong>(.*?)</strong>'
 
-# print(projects_list[19])
+# list_of_titles = []
 
-# match = re.search(author_pattern, "<p>W. Pema N. H. Malling, Louis Marott Normann, Oliver B. K. Petersen, Kristoffer A. Kortbæk: <strong>")
-# if match:
-#     print(match.group(1))
+# for project in projects_list:
+#     match = re.search(title_pattern, project, re.DOTALL)
+#     if match:
+#         title = match.group(1)
+#         list_of_titles.append(title)
+#     else:
+#         list_of_titles.append('No title found')
+
+# # print(list_of_titles)
+
+# # find the index there is no title
+
+# no_title_index = [index for index, title in enumerate(list_of_titles) if title == 'No title found']
+
+# if(len(no_title_index) > 0):
+#     print(no_title_index)
 # else:
-#     print('No author found')
+#     print('ALL TITLES FOUND')
 
-# NOTE ELEMENT 14 SHOULD NOT BE INCLUDED AS IT IS NOT A BSC NOR MSC THESIS
-# NOTE ELEMENT 30,21 SHOULD NOT BE INCLUDED AS IT DOES NOT MENTION WHAT KIND OF THESIS IT IS
-# NOTE ELEMENT 29,31,32 SHOULD  BE INCLUDED AS IT IS MSC THESIS
+# # print(len(list_of_authors) == len(list_of_titles))
 
-print(list_of_degrees)
-# element 29, 31, 32 shoulde be 'MSc'
+# # extracting supervisor name from the pdf file in the diku projects
 
-list_of_degrees[29] = 'MSc'
-list_of_degrees[31] = 'MSc'
-list_of_degrees[32] = 'MSc'
+# list_of_supervisors = ['Cosmin Eugen Oancea', 'Troels Henriksen', 'Martin Elsman']
 
-print(list_of_degrees)
+# supervisor_id = [i for i in range(1, len(list_of_supervisors) + 1)]	
 
-no_degree_index = [index for index, degree in enumerate(list_of_degrees) if degree == 'No degree found']
+# supervisor_df = pd.DataFrame({
+#     'supervisor': list_of_supervisors,
+#     'id': supervisor_id
+# })
 
-if(len(no_degree_index) > 0):
-    print(no_degree_index)
-else:
-    print('ALL DEGREES FOUND')
-
-print(len(list_of_authors) == len(list_of_degrees))
-
-# regular expression to get month end year
-month_year_pattern = r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s\d{4}'
-
-list_of_month_years = []
-
-for project in projects_list:
-    match = re.search(month_year_pattern, project, re.DOTALL)
-    if match:
-        month_year = match.group(0)
-        list_of_month_years.append(month_year)
-    else:
-        list_of_month_years.append('No month year found')
-
-no_month_year_index = [index for index, month_year in enumerate(list_of_month_years) if month_year == 'No month year found']
+# supervisor_df.to_csv('small_diku_supervisors.csv', index=False)
 
 
-# change the month year for element 43 to June 2020
-list_of_month_years[43] = 'June 2020'
 
-print(list_of_month_years)
 
-# get the pdf link
+# # regular expression to get the degree level
+# degree_pattern = r'\b(?:BSc|MSc|Msc|Bsc)\b'
 
-pdf_pattern = r'<a href="(.*?)">pdf</a>'
-list_of_pdfs = []
+# list_of_degrees = []
 
-for project in projects_list:
-    match = re.search(pdf_pattern, project, re.DOTALL)
-    if match:
-        pdf = match.group(1)
-        # add the full link to the pdf
-        pdf = 'https://futhark-lang.org/' + pdf
-        list_of_pdfs.append(pdf)
-    else:
-        list_of_pdfs.append('No pdf found')
+# for project in projects_list:
+#     match = re.search(degree_pattern, project, re.DOTALL)
+#     if match:
+#         degree = match.group(0)
+#         list_of_degrees.append(degree)
+#     else:
+#         list_of_degrees.append('No degree found')
 
-no_pdf_index = [index for index, pdf in enumerate(list_of_pdfs) if pdf == 'No pdf found']
+# no_degree_index = [index for index, degree in enumerate(list_of_degrees) if degree == 'No degree found']
 
-print(no_pdf_index)
+# if(len(no_degree_index) > 0):
+#     print(no_degree_index)
+# else:
+#     print('ALL DEGREES FOUND')
+
+# print(projects_list[21])
+
+# # this is project 19 which doesnt seem to get the author name even though the pattern is correct
+# # <p>W. Pema N. H. Malling, Louis Marott Normann, Oliver
+# # B. K. Petersen, Kristoffer A. Kortbæk: <strong>Extending Futhark’s
+# # multicore C backend to utilize SIMD using ISPC</strong>. BSc thesis. Department of
+# # Computer Science, University of Copenhagen.
+# # June 2022. (<a href="student-projects/ispc-bsc-thesis.pdf">pdf</a>)</p>
+
+# # print(projects_list[19])
+
+# # match = re.search(author_pattern, "<p>W. Pema N. H. Malling, Louis Marott Normann, Oliver B. K. Petersen, Kristoffer A. Kortbæk: <strong>")
+# # if match:
+# #     print(match.group(1))
+# # else:
+# #     print('No author found')
+
+# # NOTE ELEMENT 14 SHOULD NOT BE INCLUDED AS IT IS NOT A BSC NOR MSC THESIS
+# # NOTE ELEMENT 30,21 SHOULD NOT BE INCLUDED AS IT DOES NOT MENTION WHAT KIND OF THESIS IT IS
+# # NOTE ELEMENT 29,31,32 SHOULD  BE INCLUDED AS IT IS MSC THESIS
+
+# print(list_of_degrees)
+# # element 29, 31, 32 shoulde be 'MSc'
+
+# list_of_degrees[29] = 'MSc'
+# list_of_degrees[31] = 'MSc'
+# list_of_degrees[32] = 'MSc'
+
+# print(list_of_degrees)
+
+# no_degree_index = [index for index, degree in enumerate(list_of_degrees) if degree == 'No degree found']
+
+# if(len(no_degree_index) > 0):
+#     print(no_degree_index)
+# else:
+#     print('ALL DEGREES FOUND')
+
+# print(len(list_of_authors) == len(list_of_degrees))
+
+# # regular expression to get month end year
+# month_year_pattern = r'\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s\d{4}'
+
+# list_of_month_years = []
+
+# for project in projects_list:
+#     match = re.search(month_year_pattern, project, re.DOTALL)
+#     if match:
+#         month_year = match.group(0)
+#         list_of_month_years.append(month_year)
+#     else:
+#         list_of_month_years.append('No month year found')
+
+# no_month_year_index = [index for index, month_year in enumerate(list_of_month_years) if month_year == 'No month year found']
+
+
+# # change the month year for element 43 to June 2020
+# list_of_month_years[43] = 'June 2020'
+
+# print(list_of_month_years)
+
+# # get the pdf link
+
+# pdf_pattern = r'<a href="(.*?)">pdf</a>'
+# list_of_pdfs = []
+
+# for project in projects_list:
+#     match = re.search(pdf_pattern, project, re.DOTALL)
+#     if match:
+#         pdf = match.group(1)
+#         # add the full link to the pdf
+#         pdf = 'https://futhark-lang.org/' + pdf
+#         list_of_pdfs.append(pdf)
+#     else:
+#         list_of_pdfs.append('No pdf found')
+
+# no_pdf_index = [index for index, pdf in enumerate(list_of_pdfs) if pdf == 'No pdf found']
+
+# print(no_pdf_index)
 
 # add the pdf link for element 43 https://futhark-lang.org/student-projects/niels-write-construct.pdf
 # list_of_pdfs[43] = 'https://futhark-lang.org/student-projects/niels-write-construct.pdf'
