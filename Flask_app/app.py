@@ -108,7 +108,7 @@ def about():
 @app.route('/project/<string:title>')
 def project(title):
     
-    project = next((p for p in project if p['title'].lower() == title.lower()), None)
+    project = next((p for p in projects if p['title'].lower() == title.lower()), None)
     if project:
         return render_template('projectPage.html', project=project)
     else:
