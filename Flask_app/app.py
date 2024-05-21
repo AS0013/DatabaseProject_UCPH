@@ -68,11 +68,38 @@ class Supervises(db.Model):
 @app.route('/')
 def index():
     # projects = Project.query.all()
+    # projects_with_authors = db.session.query(Project, Author).join(Writes, Project.id == Writes.project_id).join(Author, Writes.author_id == Author.id).all()
+
+    # project = [ {"title": project.title, "degree": project.degree,"author": author.name, "year": project.year, "id": project.id} for project, author in projects_with_authors]
+
+    # projects = Project.query.all()
+    # authors = Author.query.all()
+    # writes = Writes.query.all()
+
+    # projects_with_authors = []
+
+    # get all the authors that worked on the same project
+
+
     projects_with_authors = db.session.query(Project, Author).join(Writes, Project.id == Writes.project_id).join(Author, Writes.author_id == Author.id).all()
+    
+    project_dict = {}
+    for project, author in projects_with_authors:
+        if project.id not in project_dict:
+            project_dict[project.id] = {
+                'title': project.title,
+                'degree': project.degree,
+                'year': project.year,
+                'university': project.university,
+                'authors': []
+            }
+        project_dict[project.id]['authors'].append(author.name)
+    
+    projects = list(project_dict.values())
 
-    project = [ {"title": project.title, "level": project.degree,"author": author.name, "date": project.year, "id": project.id} for project, author in projects_with_authors]
+    
 
-    return render_template('index.html', projects=project)
+    return render_template('index.html', projects=projects)
 
 @app.route('/about')
 def about():

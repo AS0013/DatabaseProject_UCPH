@@ -50,13 +50,55 @@
             <button type="submit">Filter</button>
         </form>
 
+        <!-- <div class="list">
+            <ul>
+                {% for project in projects %}
+                    <li> <a href="{{url_for('project', title=project.title)}}" >{{ project.title }} - {{', '.join(project.author)}} - {{ project.degree}} - {{ project.university }}</li></a>
+                {% endfor %}
+            </ul>
+        </div> -->
+
+
         <div class="list">
             <ul>
                 {% for project in projects %}
-                    <li> <a href="{{url_for('project', title=project.title)}}" >{{ project.title }} - {{project.author}} - {{ project.degree}} - {{ project.year }} - {{ project.university }}</li></a>
+                    <li>
+                        <a href="{{ url_for('project', title=project.title) }}">{{ project.title }}</a> - {{ project.degree }} - {{ project.university }}
+                        <ul>
+                            <li>Year: {{ project.year }}</li>
+                            <li>Authors:
+                                <ul>
+                                    {% for author in project.authors %}
+                                        <li>{{ author }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
+
+
+        <!-- <div class="list">
+            <ul>
+                {% for project in projects %}
+                    <li>
+                        <a href="{{ url_for('project', title=project.title) }}">{{ project.title }}</a>
+                        <p>Authors:</p>
+                        <ul>
+                            {% for author in project.authors %}
+                                <li>{{ author }}</li>
+                            {% endfor %}
+                        </ul>
+                        <p>Degree: {{ project.degree }}</p>
+                        <p>University: {{ project.university }}</p>
+                        <p>Year: {{ project.year }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div> -->
+
     </div>
     
 </body>
