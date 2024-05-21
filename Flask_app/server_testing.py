@@ -22,45 +22,45 @@ cur.execute('''
 
 
 cur.execute('''
-            DROP TABLE IF EXISTS authors;
+            DROP TABLE IF EXISTS author;
 ''')
 
 
 cur.execute('''
-            DROP TABLE IF EXISTS projects;
+            DROP TABLE IF EXISTS project;
 ''')
 
 cur.execute('''
-            DROP TABLE IF EXISTS supervisors;
+            DROP TABLE IF EXISTS supervisor;
 ''')
 
 cur.execute('''
-            CREATE TABLE IF NOT EXISTS authors ( 
-                author_name VARCHAR(255),
-                author_id int,
-                PRIMARY KEY (author_id));
+            CREATE TABLE IF NOT EXISTS author ( 
+                name VARCHAR(255),
+                id int,
+                PRIMARY KEY (id));
 ''')
 
 # create Table for Projects from the small_diku_projects.csv
 
 cur.execute('''
-CREATE TABLE IF NOT EXISTS projects (
-            project_title VARCHAR(255),
-            project_degree VARCHAR(255),
-            project_pdf VARCHAR(255),
-            project_year int,
-            project_university VARCHAR(255),
-            project_id int,
-            PRIMARY KEY (project_id));
+CREATE TABLE IF NOT EXISTS project (
+            title VARCHAR(255),
+            degree VARCHAR(255),
+            pdf VARCHAR(255),
+            year int,
+            university VARCHAR(255),
+            id int,
+            PRIMARY KEY (id));
 ''')
 
 # create Table for supervisors from the small_diku_supervisors.csv
 
 cur.execute('''
-CREATE TABLE IF NOT EXISTS supervisors (
-            supervisor_name VARCHAR(255),
-            supervisor_id int,
-            PRIMARY KEY (supervisor_id));
+CREATE TABLE IF NOT EXISTS supervisor (
+            name VARCHAR(255),
+            id int,
+            PRIMARY KEY (id));
 ''')
 
 
@@ -68,20 +68,20 @@ CREATE TABLE IF NOT EXISTS supervisors (
 
 with open('small_diku_authors.csv', 'r') as f:
     next(f)
-    cur.copy_from(f, 'authors', sep=',')
+    cur.copy_from(f, 'author', sep=',')
 
 
 #  fill in the data projects from the small_diku_projects.csv
 
 with open('small_diku_projects.csv', 'r') as f:
     next(f)
-    cur.copy_from(f, 'projects', sep=',')
+    cur.copy_from(f, 'project', sep=',')
 
 # fill in the data supervisors from the small_diku_supervisors.csv
 
 with open('small_diku_supervisors.csv', 'r') as f:
     next(f)
-    cur.copy_from(f, 'supervisors', sep=',')
+    cur.copy_from(f, 'supervisor', sep=',')
 
 # create Table for Author-Writes-Projects that connects the authors and projects
 

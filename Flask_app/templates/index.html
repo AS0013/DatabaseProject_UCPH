@@ -53,7 +53,7 @@
         <div class="list">
             <ul>
                 {% for project in projects %}
-                    <li> <a href="{{url_for('project', title=project.title)}}" >{{ project.title }} - {{project.author}} - {{ project.level }} - {{ project.date }} - {{ project.university }}</li></a>
+                    <li> <a href="{{url_for('project', title=project.title)}}" >{{ project.title }} - {{project.author}} - {{ project.degree}} - {{ project.year }} - {{ project.university }}</li></a>
                 {% endfor %}
             </ul>
         </div>

@@ -29,6 +29,10 @@ a:hover {
     align-items: center;
     justify-content: center;
     height: 50vh; /*Full viewport height*/ 
+
+    max-height: calc(100vh - 60px); /* Adjust the 60px based on the height of your navbar */
+    overflow-y: auto;
+
 }
 h1 {
     font-size: 3.2em;
@@ -92,6 +96,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     padding-top: 50px; /* Space for fixed navbar */
+    overflow: hidden;
 }
 
 
