@@ -53,6 +53,7 @@
         <ul>
             {% for author in project.authors %}
                 <li>{{ author }}</li>
+                <br>
             {% endfor %}
         </ul>
         <p><b>Level</b>: {{project.degree}}</p>
@@ -60,7 +61,7 @@
         <hr>
         <h2>Project attachments</h2>
         <ul>
-            <li><a>PDF</a></li>
+            <li><a href="{{project.pdf}}">PDF</a></li>
         </ul>
     </div>
 </body>

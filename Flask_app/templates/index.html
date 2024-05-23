@@ -22,42 +22,27 @@
         <!-- form for searching projects -->
         <form action="{{ url_for('search') }}" method="post">
             <input type="text" name="query" placeholder="Search for a project...">
-            <!-- <button type="submit">Search</button> -->
-        <!-- </form> -->
-        <!-- filters a user can apply to find the right projects. Going by publishing year, degree level, and university -->
-        <!-- <form action="{{ url_for('filter') }}" method="post"> -->
             <select name="level">
                 <option value="">Select Level</option>
-                <option value="Bachelor">BSc</option>
-                <option value="Master">Msc</option>
+                <option value="BSc">BSc</option>
+                <option value="MSc">MSc</option>
             </select>
-            <!-- <button type="submit">Filter</button> -->
-        <!-- </form> -->
-        <!-- filter by year -->
-        <!-- <form action="{{ url_for('filter') }}" method="post"> -->
             <select name="year">
                 <option value="">Select Year</option>
                 <option value="2020">2020</option>
                 <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
             </select>
-            <!-- <button type="submit">Filter</button> -->
-        <!-- </form> -->
-        <!-- filter by university -->
-        <!-- <form action="{{ url_for('filter') }}" method="post"> -->
             <select name="university">
                 <option value="">Select University</option>
-                <option value="University of Copenhagen">University of Copenhagen</option>
+                <option value="DIKU">DIKU</option>
             </select>
             <button type="submit">Search</button>
         </form>
 
-        <!-- <div class="list">
-            <ul>
-                {% for project in projects %}
-                    <li> <a href="{{url_for('project', title=project.title)}}" >{{ project.title }} - {{', '.join(project.author)}} - {{ project.degree}} - {{ project.university }}</li></a>
-                {% endfor %}
-            </ul>
-        </div> -->
 
 
         <div class="list">
@@ -81,24 +66,6 @@
         </div>
 
 
-        <!-- <div class="list">
-            <ul>
-                {% for project in projects %}
-                    <li>
-                        <a href="{{ url_for('project', title=project.title) }}">{{ project.title }}</a>
-                        <p>Authors:</p>
-                        <ul>
-                            {% for author in project.authors %}
-                                <li>{{ author }}</li>
-                            {% endfor %}
-                        </ul>
-                        <p>Degree: {{ project.degree }}</p>
-                        <p>University: {{ project.university }}</p>
-                        <p>Year: {{ project.year }}</p>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div> -->
 
     </div>
     
