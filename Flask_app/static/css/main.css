@@ -29,7 +29,10 @@ a:hover {
     align-items: center;
     justify-content: center;
     height: 50vh; /*Full viewport height*/ 
-    overflow-y: scroll;
+
+    max-height: calc(100vh - 60px); /* Adjust the 60px based on the height of your navbar */
+    overflow-y: auto;
+
     box-sizing: border-box;
 }
 h1 {
@@ -96,6 +99,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     padding-top: 50px; /* Space for fixed navbar */
+    overflow: hidden;
 }
 
 .cont_about {
@@ -119,4 +123,28 @@ body {
 form input, form select, form button {
     padding: 10px;
     margin: 5px;
+}
+
+
+.list {
+    max-height: 400px; /* Adjust this value based on your preference */
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding-right: 15px; /* Optional: Adds some space on the right side of the list */
+}
+
+/* Optional: Smoothens the scrollbar */
+.list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.list::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the tracking area */
+}
+
+.list::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scroll thumb */
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scroll thumb on hover */
 }
