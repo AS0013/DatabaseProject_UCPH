@@ -108,8 +108,21 @@ def about():
 @app.route('/project/<string:title>')
 def project(title):
     
-    project = next((p for p in projects if p['title'].lower() == title.lower()), None)
+    # project = next((p for p in projects if p['title'].lower() == title.lower()), None)
+    project = Project.query.filter_by(title=title).first()
+
     if project:
+
+        # get the authors of the project aswell
+
+        authors = db.session.query(Author).join(Writes, Author.id == Writes.author_id).filter(Writes.project_id == project.id).all()
+        project = {
+            "title": project.title,
+            "degree": project.degree,
+            "year": project.year,
+            "university": project.university,
+            "authors": [author.name for author in authors]
+        }
         return render_template('projectPage.html', project=project)
     else:
         return render_template('404.html'), 404
@@ -117,9 +130,50 @@ def project(title):
 
 @app.route('/search', methods=['POST'])
 def search():
+    # query = request.form['query']
+    # filtered_projects = [project for project in projects if query.lower() in project['title'].lower()]
+    # return render_template('index.html', projects=filtered_projects)
+
     query = request.form['query']
-    filtered_projects = [project for project in projects if query.lower() in project['title'].lower()]
-    return render_template('index.html', projects=filtered_projects)
+    level = request.form['level']
+    year = request.form['year']
+    university = request.form['university']
+
+    projects_with_authors = db.session.query(Project, Author).join(Writes, Project.id == Writes.project_id).join(Author, Writes.author_id == Author.id)
+
+    if query:
+        projects_with_authors = projects_with_authors.filter(Project.title.ilike(f'%{query}%'))
+    
+    if level:
+        projects_with_authors = projects_with_authors.filter(Project.degree == level)
+    
+    if year:
+        projects_with_authors = projects_with_authors.filter(Project.year == year)
+    
+    if university:
+        projects_with_authors = projects_with_authors.filter(Project.university == university)
+
+    projects_with_authors = projects_with_authors.all()
+
+    project_dict = {}
+
+    for project, author in projects_with_authors:
+        if project.id not in project_dict:
+            project_dict[project.id] = {
+                'title': project.title,
+                'degree': project.degree,
+                'year': project.year,
+                'university': project.university,
+                'authors': []
+            }
+        project_dict[project.id]['authors'].append(author.name)
+
+    projects = list(project_dict.values())
+    
+    return render_template('index.html', projects=projects)
+
+
+
 
 @app.route('/filter', methods=['POST'])
 def filter():
