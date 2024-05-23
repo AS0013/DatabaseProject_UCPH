@@ -28,7 +28,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 50vh; /*Full viewport height*/ 
+    height: auto; /*Full viewport height*/ 
 
     max-height: calc(100vh - 60px); /* Adjust the 60px based on the height of your navbar */
     overflow-y: auto;
@@ -56,12 +56,12 @@ form {
 /* Styling for the navigation bar */
 .navbar {
     display: flex;
-    justify-content: center;
+    /* justify-content: space-around; */
+    justify-content: flex-end;
     background-color: #333;
     padding: 10px;
-    padding-left: 860px;
     position: fixed;
-    width: 100%;
+    width: 100%; 
     top: 0;
 }
 
@@ -75,8 +75,7 @@ form {
 
 /* Styling for each navigation link */
 .navbar li {
-    margin-left: 10px;
-    /* padding-right: 10px; */
+    margin-right: 15px;
 }
 
 .navbar a {
@@ -127,24 +126,25 @@ form input, form select, form button {
 
 
 .list {
-    max-height: 400px; /* Adjust this value based on your preference */
-    overflow-y: auto; /* Enables vertical scrolling */
+     /* Adjust this value based on your preference */
+     /* Enables vertical scrolling */
+    max-height: 550px;
     padding-right: 15px; /* Optional: Adds some space on the right side of the list */
 }
 
 /* Optional: Smoothens the scrollbar */
-.list::-webkit-scrollbar {
+/* .list::-webkit-scrollbar {
     width: 10px;
-}
+} */
 
-.list::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Color of the tracking area */
-}
+/* .list::-webkit-scrollbar-track {
+    align-items: center;
+} */
 
-.list::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the scroll thumb */
-}
+/* .list::-webkit-scrollbar-thumb { */
+    /* background: #888; Color of the scroll thumb */
+/* } */
 
-.list::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color of the scroll thumb on hover */
-}
+/* .list::-webkit-scrollbar-thumb:hover { */
+    /* background: #555; Color of the scroll thumb on hover */
+/* } 
