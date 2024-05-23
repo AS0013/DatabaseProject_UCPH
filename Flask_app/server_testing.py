@@ -90,8 +90,8 @@ CREATE TABLE IF NOT EXISTS writes (
             author_id int,
             project_id int,
             PRIMARY KEY (author_id, project_id),
-            FOREIGN KEY (author_id) REFERENCES authors (author_id),
-            FOREIGN KEY (project_id) REFERENCES projects (project_id)
+            FOREIGN KEY (author_id) REFERENCES author (id),
+            FOREIGN KEY (project_id) REFERENCES project (id)
             );
 ''') 
 
@@ -102,8 +102,8 @@ CREATE TABLE IF NOT EXISTS supervises (
             supervisor_id int,
             project_id int,
             PRIMARY KEY (supervisor_id, project_id),
-            FOREIGN KEY (supervisor_id) REFERENCES supervisors (supervisor_id),
-            FOREIGN KEY (project_id) REFERENCES projects (project_id)
+            FOREIGN KEY (supervisor_id) REFERENCES supervisor (id),
+            FOREIGN KEY (project_id) REFERENCES project (id)
             );
 ''')
 
