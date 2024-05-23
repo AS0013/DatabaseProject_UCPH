@@ -10,17 +10,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1989@localhost/DI
 
 db = SQLAlchemy(app)
 
-# projects = [
-#     {"title": "Project A", "level": "Bachelor", "description": "Description of Project A", "author": "Author A", "date": "2021", "id": 1},
-#     {"title": "Project B", "level": "Master", "description": "Description of Project B", "author": "Author B", "date": "2020", "id": 5},
-# ]
-
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
     degree = db.Column(db.String(255), nullable=False)
-    # description = db.Column(db.String(255), nullable=False)
-    # author = db.Column(db.String(255), nullable=False)
     pdf = db.Column(db.String(255), nullable=False)
     university = db.Column(db.String(255), nullable=False)
     year = db.Column(db.Integer, nullable=False)
@@ -67,16 +60,6 @@ class Supervises(db.Model):
 
 @app.route('/')
 def index():
-    # projects = Project.query.all()
-    # projects_with_authors = db.session.query(Project, Author).join(Writes, Project.id == Writes.project_id).join(Author, Writes.author_id == Author.id).all()
-
-    # project = [ {"title": project.title, "degree": project.degree,"author": author.name, "year": project.year, "id": project.id} for project, author in projects_with_authors]
-
-    # projects = Project.query.all()
-    # authors = Author.query.all()
-    # writes = Writes.query.all()
-
-    # projects_with_authors = []
 
     # get all the authors that worked on the same project
 
@@ -108,8 +91,21 @@ def about():
 @app.route('/project/<string:title>')
 def project(title):
     
-    project = next((p for p in projects if p['title'].lower() == title.lower()), None)
+    project = Project.query.filter_by(title=title).first()
+
     if project:
+
+        # get the authors of the project aswell
+
+        authors = db.session.query(Author).join(Writes, Author.id == Writes.author_id).filter(Writes.project_id == project.id).all()
+        project = {
+            "title": project.title,
+            "degree": project.degree,
+            "year": project.year,
+            "university": project.university,
+            "pdf": project.pdf,
+            "authors": [author.name for author in authors]
+        }
         return render_template('projectPage.html', project=project)
     else:
         return render_template('404.html'), 404
@@ -117,15 +113,44 @@ def project(title):
 
 @app.route('/search', methods=['POST'])
 def search():
-    query = request.form['query']
-    filtered_projects = [project for project in projects if query.lower() in project['title'].lower()]
-    return render_template('index.html', projects=filtered_projects)
 
-@app.route('/filter', methods=['POST'])
-def filter():
+    query = request.form['query']
     level = request.form['level']
-    filtered_projects = [project for project in projects if project['level'] == level]
-    return render_template('index.html', projects=filtered_projects)
+    year = request.form['year']
+    university = request.form['university']
+
+    projects_with_authors = db.session.query(Project, Author).join(Writes, Project.id == Writes.project_id).join(Author, Writes.author_id == Author.id)
+
+    if query:
+        projects_with_authors = projects_with_authors.filter(Project.title.ilike(f'%{query}%'))
+    
+    if level:
+        projects_with_authors = projects_with_authors.filter(Project.degree == level)
+    
+    if year:
+        projects_with_authors = projects_with_authors.filter(Project.year == year)
+    
+    if university:
+        projects_with_authors = projects_with_authors.filter(Project.university == university)
+
+    projects_with_authors = projects_with_authors.all()
+
+    project_dict = {}
+
+    for project, author in projects_with_authors:
+        if project.id not in project_dict:
+            project_dict[project.id] = {
+                'title': project.title,
+                'degree': project.degree,
+                'year': project.year,
+                'university': project.university,
+                'authors': []
+            }
+        project_dict[project.id]['authors'].append(author.name)
+
+    projects = list(project_dict.values())
+    
+    return render_template('index.html', projects=projects)
 
 
 if __name__ == '__main__':

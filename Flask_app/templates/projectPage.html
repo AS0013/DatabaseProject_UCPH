@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2><b>{{project.title}}</b> - {{ project.degree }} - {{ project.university }}</h2>
+        <p><b>Authors:</b><p>
+            <ul>
+                {% for author in project.authors %}
+                    <li>{{ author }}</li>
+                {% endfor %}
+            </ul>
+        <p>Advisor: {{project.supervisor}}</p>
+    </div>
+
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>University Project Catalogue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <!-- container for nav bar for the website: Home, about -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h2>Overview of selected project</h2>
+        <hr>
+        <p><b>Title</b>: {{project.title}}</p>
+        <p><b>Author(s)</b>:</p>
+        <ul>
+            {% for author in project.authors %}
+                <li>{{ author }}</li>
+                <br>
+            {% endfor %}
+        </ul>
+        <p><b>Level</b>: {{project.degree}}</p>
+        <p><b>Main supervisor</b>:</p>
+        <hr>
+        <h2>Project attachments</h2>
+        <ul>
+            <li><a href="{{project.pdf}}">PDF</a></li>
+        </ul>
+    </div>
+</body>
+</html>
