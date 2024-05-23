@@ -14,14 +14,14 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
 }
-a {
+/* a {
     font-weight: 500;
     color: #646cff;
     text-decoration: inherit;
 }
 a:hover {
     color: #535bf2;
-}
+} */
 .container {
     display: flex;
     margin: 0;
@@ -33,6 +33,7 @@ a:hover {
     max-height: calc(100vh - 60px); /* Adjust the 60px based on the height of your navbar */
     overflow-y: auto;
 
+    box-sizing: border-box;
 }
 h1 {
     font-size: 3.2em;
@@ -55,9 +56,10 @@ form {
 /* Styling for the navigation bar */
 .navbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     background-color: #333;
     padding: 10px;
+    padding-left: 860px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -74,6 +76,7 @@ form {
 /* Styling for each navigation link */
 .navbar li {
     margin-left: 10px;
+    /* padding-right: 10px; */
 }
 
 .navbar a {
@@ -99,6 +102,22 @@ body {
     overflow: hidden;
 }
 
+.cont_about {
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.content {
+    width: 100%;
+    height: auto;
+    line-height: 10px;
+    /* background: linear-gradient(to bottom, #fff, #ccc); */
+}
+.spacer {
+    margin-bottom: 100px;
+}
 
 /* Styling for the form elements for consistency */
 form input, form select, form button {
