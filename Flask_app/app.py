@@ -99,20 +99,37 @@ def addProjectPost():
     year = request.form.get('year')
     university = request.form.get('university')
     author = request.form.get('author')
+    supervisor = request.form.get('supervisor')
+    pdf = request.form.get('pdf')
 
     # adding the project to the database with the next available id
-    project = Project(title=title, degree=degree, year=year, university=university)
+    project = Project(title=title, degree=degree, year=year, university=university, pdf=pdf)
     db.session.add(project)
+    db.session.commit()
 
     # adding the author to the database with the next available id
     author = Author(name=author)
     db.session.add(author)
+    db.session.commit()
+
 
     # adding the author to the project
     writes = Writes(author_id=author.id, project_id=project.id)
     db.session.add(writes)
-
     db.session.commit()
+
+    #adding the supervisor
+
+    supervisor = Supervisor(name=supervisor)
+    db.session.add(supervisor)
+    db.session.commit()
+
+    #adding the supervises
+    supervises = Supervises(supervisor_id=supervisor.id, project_id=project.id)
+    db.session.add(supervises)
+    db.session.commit()
+
+    return redirect(url_for('index'))
 
     
 

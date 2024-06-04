@@ -21,30 +21,30 @@
         <form method="post" action="{{ url_for('addProject') }}">
             <fieldset>
                 <label for="title">Enter project title:
-                    <input value="title" id="title" type="text" required />
+                    <input name="title" id="title" type="text" required />
                 </label>
                 <label for="author">Enter author:
-                    <input value="author" id="author" type="text" required />
+                    <input name="author" id="author" type="text" required />
                 </label>
                 <label for="supervisor">Enter supervisor:
-                    <input value="supervisor" id="supervisor" type="text" required />
+                    <input name="supervisor" id="supervisor" type="text" required />
                 </label>
                 <label for="year">Enter year:
-                    <input value="supervisor" id="year" type="number" min="1900" max="2024" required />
+                    <input name="year" id="year" type="number" min="1900" max="2024" required />
                 </label>
                 <label>Enter degree:
-                    <select value="degree">
+                    <select name="degree">
                         <option value="BSc" selected>Bachelor</option>
                         <option value="MSc">Master</option>
                     </select>
                 </label>
                 <label>Enter university:
-                    <select value="university">
+                    <select name="university">
                         <option value="DIKU">University of Copenhagen</option>
                     </select>
                 </label>
                 <label for="pdf"> Upload pdf:
-                    <input value="pdf" id="pdf" type="url" />
+                    <input name="pdf" id="pdf" type="text" />
                 </label>
             </fieldset>
             <input type="submit">
