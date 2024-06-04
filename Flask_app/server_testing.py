@@ -108,6 +108,12 @@ CREATE TABLE IF NOT EXISTS supervises (
             );
 ''')
 
+# inserting data into the supervises table
+
+with open('small_diku_supervises.csv', 'r') as f:
+    next(f)
+    cur.copy_from(f, 'supervises', sep=',')
+
 
 # inserting data into the writes table
 
