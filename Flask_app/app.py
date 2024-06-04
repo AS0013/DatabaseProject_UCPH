@@ -88,6 +88,35 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/addProject')
+def addProject():
+    return render_template('addProject.html')
+
+@app.route('/addProject', methods=['POST'])
+def addProjectPost():
+    title = request.form['title']
+    degree = request.form['degree']
+    year = request.form['year']
+    university = request.form['university']
+    author = request.form ['author']
+
+    # adding the project to the database with the next available id
+    project = Project(title=title, degree=degree, year=year, university=university)
+    db.session.add(project)
+
+    # adding the author to the database with the next available id
+    author = Author(name=author)
+    db.session.add(author)
+
+    # adding the author to the project
+    writes = Writes(author_id=author.id, project_id=project.id)
+    db.session.add(writes)
+
+    db.session.commit()
+
+    
+
+
 @app.route('/project/<string:title>')
 def project(title):
     

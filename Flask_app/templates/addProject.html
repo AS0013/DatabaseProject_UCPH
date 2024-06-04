@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Navbar container -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- addProject page container -->
+    <div>
+        <h1>Submission form for new projects</h1>
+        <form method="post">
+            <fieldset>
+                <label for="title">Enter project title:
+                    <input id="title" type="text" required />
+                </label>
+                <label for="author">Enter author:
+                    <input id="author" type="text" required />
+                </label>
+                <label for="supervisor">Enter supervisor:
+                    <input id="supervisor" type="text" required />
+                </label>
+                <label for="year">Enter year:
+                    <input id="year" type="number" min="1900" max="2024" required />
+                </label>
+                <label>Enter level:
+                    <select>
+                        <option value="BSc" selected>Bachelor</option>
+                        <option value="MSc">Master</option>
+                    </select>
+                </label>
+                <label for="pdf">
+                    <input id="pdf" type="file" />
+                </label>
+            </fieldset>
+        </form>
+    </div>
+    <!-- <div class="popup" onclick="myFunction()">Click me!
+        <span class="popuptext" id="myPopup">Popup text...</span>
+    </div> -->
+</body>
+</html> 
