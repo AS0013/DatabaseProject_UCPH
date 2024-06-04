@@ -1,17 +1,17 @@
-title,degree,pdf,year,university,id
-Two optimizations to GPU code generation in the Futhark compiler,MSc,https://futhark-lang.org/student-projects/christian-anders-scan-reduce-msc-project.pdf,2024,DIKU,1
-Efficient Sequentialization of Parallelism,MSc,https://futhark-lang.org/student-projects/jonas-christian-effseq-msc-thesis.pdf,2024,DIKU,2
-General Array Locality Optimization by Permutation (GALOP),MSc,https://futhark-lang.org/student-projects/pedersen-nelin-msc-thesis.pdf,2024,DIKU,3
-Parallel Parsing using Futhark,BSc,https://futhark-lang.org/student-projects/william-bsc-thesis.pdf,2023,DIKU,4
-Implementation of Graph Algorithms in Futhark,BSc,https://futhark-lang.org/student-projects/rune-bsc-thesis.pdf,2023,DIKU,5
-Flattening Irregular Nested Parallelism in Futhark,BSc,https://futhark-lang.org/student-projects/cornelius-bsc-thesis.pdf,2023,DIKU,6
-Convex Optimization and Parallel Computing for Portfolio Optimization,MSc,https://futhark-lang.org/student-projects/kasper-msc-thesis.pdf,2023,DIKU,7
-Data-parallel Implementation of Randomized Approximate Nearest Neighbours,BSc,https://futhark-lang.org/student-projects/Tjorn-BSc-Approx-kNN.pdf,2023,DIKU,8
-Solving TSP on the GPU based on heuristic algorithms,BSc,https://futhark-lang.org/student-projects/BSc-Henriette-Johann-TSP.pdf,2023,DIKU,9
-Application of Probabilistic Machine Learning Methods for Protein Generation,MSc,https://futhark-lang.org/student-projects/peter-larsen-msc-var-enc.pdf,2023,DIKU,10
-Sparse Approximate Inverse - A Massively Parallel Implementation,BSc,https://futhark-lang.org/student-projects/Emil-Rasmussen-BSc-SPAI.pdf,2023,DIKU,11
-Parallel Implementation of the SPAI algorithm,BSc,https://futhark-lang.org/student-projects/Caroline-Mikkel-BSc-SPAI.pdf,2023,DIKU,12
-Benchmarking Futhark-AD using MINPACK-2,No degree found,https://futhark-lang.org/student-projects/peter-msc-project.pdf,2023,DIKU,13
-Reverse mode automatic differentiation of histograms in Futhark,MSc,https://futhark-lang.org/student-projects/søren-msc-thesis.pdf,2022,DIKU,14
-Extending automatic differentiation for an array language with nested parallelism,Msc,https://futhark-lang.org/student-projects/gilli-msc-thesis.pdf,2022,DIKU,15
-Reverse Automatic Differentiation in Futhark,MSc,https://futhark-lang.org/student-projects/lotte-ulrik-msc-thesis.pdf,2022,DIKU,16
+title,degree,pdf,year,university,
+Two optimizations to GPU code generation in the Futhark compiler,MSc,https://futhark-lang.org/student-projects/christian-anders-scan-reduce-msc-project.pdf,2024,DIKU
+Efficient Sequentialization of Parallelism,MSc,https://futhark-lang.org/student-projects/jonas-christian-effseq-msc-thesis.pdf,2024,DIKU
+General Array Locality Optimization by Permutation (GALOP),MSc,https://futhark-lang.org/student-projects/pedersen-nelin-msc-thesis.pdf,2024,DIKU
+Parallel Parsing using Futhark,BSc,https://futhark-lang.org/student-projects/william-bsc-thesis.pdf,2023,DIKU
+Implementation of Graph Algorithms in Futhark,BSc,https://futhark-lang.org/student-projects/rune-bsc-thesis.pdf,2023,DIKU
+Flattening Irregular Nested Parallelism in Futhark,BSc,https://futhark-lang.org/student-projects/cornelius-bsc-thesis.pdf,2023,DIKU
+Convex Optimization and Parallel Computing for Portfolio Optimization,MSc,https://futhark-lang.org/student-projects/kasper-msc-thesis.pdf,2023,DIKU
+Data-parallel Implementation of Randomized Approximate Nearest Neighbours,BSc,https://futhark-lang.org/student-projects/Tjorn-BSc-Approx-kNN.pdf,2023,DIKU
+Solving TSP on the GPU based on heuristic algorithms,BSc,https://futhark-lang.org/student-projects/BSc-Henriette-Johann-TSP.pdf,2023,DIKU
+Application of Probabilistic Machine Learning Methods for Protein Generation,MSc,https://futhark-lang.org/student-projects/peter-larsen-msc-var-enc.pdf,2023,DIKU
+Sparse Approximate Inverse - A Massively Parallel Implementation,BSc,https://futhark-lang.org/student-projects/Emil-Rasmussen-BSc-SPAI.pdf,2023,DIKU
+Parallel Implementation of the SPAI algorithm,BSc,https://futhark-lang.org/student-projects/Caroline-Mikkel-BSc-SPAI.pdf,2023,DIKU
+Benchmarking Futhark-AD using MINPACK-2,No degree found,https://futhark-lang.org/student-projects/peter-msc-project.pdf,2023,DIKU
+Reverse mode automatic differentiation of histograms in Futhark,MSc,https://futhark-lang.org/student-projects/søren-msc-thesis.pdf,2022,DIKU
+Extending automatic differentiation for an array language with nested parallelism,Msc,https://futhark-lang.org/student-projects/gilli-msc-thesis.pdf,2022,DIKU
+Reverse Automatic Differentiation in Futhark,MSc,https://futhark-lang.org/student-projects/lotte-ulrik-msc-thesis.pdf,2022,DIKU

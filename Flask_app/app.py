@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1989@localhost/DIS_Test'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Choudhary6583@localhost/DIS_Test'
 # app.config['SECRET_KEY']  # some sort of secret key can added for security? gonna look into this later. 
 # https://stackoverflow.com/questions/34902378/where-do-i-get-secret-key-for-flask
 
@@ -88,6 +88,52 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/addProject')
+def addProject():
+    return render_template('addProject.html')
+
+@app.route('/addProject', methods=['POST'])
+def addProjectPost():
+    title = request.form.get('title')
+    degree = request.form.get('degree')
+    year = request.form.get('year')
+    university = request.form.get('university')
+    author = request.form.get('author')
+    supervisor = request.form.get('supervisor')
+    pdf = request.form.get('pdf')
+
+    # adding the project to the database with the next available id
+    project = Project(title=title, degree=degree, year=year, university=university, pdf=pdf)
+    db.session.add(project)
+    db.session.commit()
+
+    # adding the author to the database with the next available id
+    author = Author(name=author)
+    db.session.add(author)
+    db.session.commit()
+
+
+    # adding the author to the project
+    writes = Writes(author_id=author.id, project_id=project.id)
+    db.session.add(writes)
+    db.session.commit()
+
+    #adding the supervisor
+
+    supervisor = Supervisor(name=supervisor)
+    db.session.add(supervisor)
+    db.session.commit()
+
+    #adding the supervises
+    supervises = Supervises(supervisor_id=supervisor.id, project_id=project.id)
+    db.session.add(supervises)
+    db.session.commit()
+
+    return redirect(url_for('index'))
+
+    
+
+
 @app.route('/project/<string:title>')
 def project(title):
     
@@ -98,13 +144,15 @@ def project(title):
         # get the authors of the project aswell
 
         authors = db.session.query(Author).join(Writes, Author.id == Writes.author_id).filter(Writes.project_id == project.id).all()
+        supervisors = db.session.query(Supervisor).join(Supervises, Supervisor.id == Supervises.supervisor_id).filter(Supervises.project_id == project.id).all()
         project = {
             "title": project.title,
             "degree": project.degree,
             "year": project.year,
             "university": project.university,
             "pdf": project.pdf,
-            "authors": [author.name for author in authors]
+            "authors": [author.name for author in authors],
+            "supervisor": supervisors[0].name if supervisors else None
         }
         return render_template('projectPage.html', project=project)
     else:
