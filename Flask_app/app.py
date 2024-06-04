@@ -98,7 +98,8 @@ def addProjectPost():
     degree = request.form.get('degree')
     year = request.form.get('year')
     university = request.form.get('university')
-    author = request.form.get('author')
+    # author = request.form.get('author')
+    authors = [author.strip() for author in request.form.get('author').split(',')]
     supervisor = request.form.get('supervisor')
     pdf = request.form.get('pdf')
 
@@ -108,14 +109,20 @@ def addProjectPost():
     db.session.commit()
 
     # adding the author to the database with the next available id
-    author = Author(name=author)
-    db.session.add(author)
+    # author = Author(name=author)
+    for author in authors:
+        author = Author(name=author)
+        db.session.add(author)
     db.session.commit()
 
 
     # adding the author to the project
-    writes = Writes(author_id=author.id, project_id=project.id)
-    db.session.add(writes)
+    # writes = Writes(author_id=author.id, project_id=project.id)
+    # db.session.add(writes)
+
+    for author in authors:
+        writes = Writes(author_id=Author.query.filter_by(name=author).first().id, project_id=project.id)
+        db.session.add(writes)
     db.session.commit()
 
     #adding the supervisor
