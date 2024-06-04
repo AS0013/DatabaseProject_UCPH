@@ -94,11 +94,11 @@ def addProject():
 
 @app.route('/addProject', methods=['POST'])
 def addProjectPost():
-    title = request.form['title']
-    degree = request.form['degree']
-    year = request.form['year']
-    university = request.form['university']
-    author = request.form ['author']
+    title = request.form.get('title')
+    degree = request.form.get('degree')
+    year = request.form.get('year')
+    university = request.form.get('university')
+    author = request.form.get('author')
 
     # adding the project to the database with the next available id
     project = Project(title=title, degree=degree, year=year, university=university)
