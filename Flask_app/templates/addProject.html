@@ -18,36 +18,36 @@
     <!-- addProject page container -->
     <div>
         <h1>Submission form for new projects</h1>
-        <form method="post">
+        <form method="post" action="{{ url_for('search') }}">
             <fieldset>
                 <label for="title">Enter project title:
-                    <input id="title" type="text" required />
+                    <input value="title" id="title" type="text" required />
                 </label>
                 <label for="author">Enter author:
-                    <input id="author" type="text" required />
+                    <input value="author" id="author" type="text" required />
                 </label>
                 <label for="supervisor">Enter supervisor:
-                    <input id="supervisor" type="text" required />
+                    <input value="supervisor" id="supervisor" type="text" required />
                 </label>
                 <label for="year">Enter year:
-                    <input id="year" type="number" min="1900" max="2024" required />
+                    <input value="supervisor" id="year" type="number" min="1900" max="2024" required />
                 </label>
                 <label>Enter level:
-                    <select>
+                    <select value="degree">
                         <option value="BSc" selected>Bachelor</option>
                         <option value="MSc">Master</option>
                     </select>
                 </label>
                 <label>Enter university:
-                    <select>
-                        <option value="BSc">University of Copenhagen</option>
+                    <select value="university">
+                        <option value="DIKU">University of Copenhagen</option>
                     </select>
                 </label>
                 <label for="pdf"> Upload pdf:
-                    <input id="pdf" type="file" />
+                    <input value="pdf" id="pdf" type="url" />
                 </label>
             </fieldset>
-            <input type="submit" value="Send request">
+            <input type="submit">
         </form>
     </div>
     <!-- <div class="popup" onclick="myFunction()">Click me!
