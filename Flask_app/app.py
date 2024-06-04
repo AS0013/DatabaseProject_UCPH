@@ -1,10 +1,12 @@
 from flask import Flask,render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask import Response
 import os
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Choudhary6583@localhost/DIS_Test'
+app.config['JSON_AS_ASCII'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1989@localhost/DIS_Test'
 # app.config['SECRET_KEY']  # some sort of secret key can added for security? gonna look into this later. 
 # https://stackoverflow.com/questions/34902378/where-do-i-get-secret-key-for-flask
 
@@ -70,13 +72,13 @@ def index():
     for project, author in projects_with_authors:
         if project.id not in project_dict:
             project_dict[project.id] = {
-                'title': project.title,
+                'title': project.title.encode('utf-8').decode('utf-8'),
                 'degree': project.degree,
                 'year': project.year,
                 'university': project.university,
                 'authors': []
             }
-        project_dict[project.id]['authors'].append(author.name)
+        project_dict[project.id]['authors'].append(author.name.encode('utf-8').decode('utf-8'))
     
     projects = list(project_dict.values())
 
@@ -90,15 +92,15 @@ def about():
 
 @app.route('/addProject')
 def addProject():
-    return render_template('addProject.html')
+    return render_template('addProject.html', content_type='text/html; charset=utf-8')
 
 @app.route('/addProject', methods=['POST'])
 def addProjectPost():
-    title = request.form['title']
+    title = request.form['title'].encode('utf-8').decode('utf-8')
     degree = request.form['degree']
     year = request.form['year']
     university = request.form['university']
-    author = request.form ['author']
+    author = request.form ['author'].encode('utf-8').decode('utf-8')
 
     # adding the project to the database with the next available id
     project = Project(title=title, degree=degree, year=year, university=university)

@@ -3,8 +3,8 @@ import sqlalchemy
 
 
 # remember to change the password to your own password and the database to your own database name
-conn = psycopg2.connect(host="localhost", database="DIS_Test", user="postgres", password="Choudhary6583", port=5432)
-conn.set_client_encoding('UNICODE')
+conn = psycopg2.connect(host="localhost", database="DIS_Test", user="postgres", password="1989", port=5432)
+conn.set_client_encoding('UTF8')
 
 cur = conn.cursor()
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS supervisor (
 
 # fill in the data author,id from the small_diku_authors.csv
 
-with open('small_diku_authors.csv', 'r') as f:
+with open('small_diku_authors.csv', 'r', encoding='utf-8') as f:
     next(f)
     cur.copy_from(f, 'author', sep=',')
 
@@ -80,7 +80,7 @@ with open('small_diku_projects.csv', 'r') as f:
 
 # fill in the data supervisors from the small_diku_supervisors.csv
 
-with open('small_diku_supervisors.csv', 'r') as f:
+with open('small_diku_supervisors.csv', 'r', encoding='utf-8') as f:
     next(f)
     cur.copy_from(f, 'supervisor', sep=',')
 
