@@ -127,13 +127,15 @@ def project(title):
         # get the authors of the project aswell
 
         authors = db.session.query(Author).join(Writes, Author.id == Writes.author_id).filter(Writes.project_id == project.id).all()
+        supervisors = db.session.query(Supervisor).join(Supervises, Supervisor.id == Supervises.supervisor_id).filter(Supervises.project_id == project.id).all()
         project = {
             "title": project.title,
             "degree": project.degree,
             "year": project.year,
             "university": project.university,
             "pdf": project.pdf,
-            "authors": [author.name for author in authors]
+            "authors": [author.name for author in authors],
+            "supervisor": supervisors[0].name if supervisors else None
         }
         return render_template('projectPage.html', project=project)
     else:
