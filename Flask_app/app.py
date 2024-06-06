@@ -1,6 +1,7 @@
 from flask import Flask,render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import os
+import re
 
 app = Flask(__name__)
 
@@ -102,6 +103,12 @@ def addProjectPost():
     authors = [author.strip() for author in request.form.get('author').split(',')]
     supervisor = request.form.get('supervisor')
     pdf = request.form.get('pdf')
+
+    pdf_pattern = "[a-zA-Z0-9./-]+(.pdf)"
+
+    if not re.match(pdf_pattern, pdf):
+        # call error message
+        return render_template('addProject.html', error="Please enter a valid pdf link")
 
     # adding the project to the database with the next available id
     project = Project(title=title, degree=degree, year=year, university=university, pdf=pdf)

@@ -18,6 +18,13 @@
     <!-- addProject page container -->
     <div>
         <h1>Submission form for new projects</h1>
+
+        {% if error %}
+        <div class="pdf-error" style="color: red;">
+            {{ error }}
+        </div>
+        {% endif %}
+
         <form method="post" action="{{ url_for('addProject') }}">
             <fieldset>
                 <label for="title">Enter project title:
@@ -40,12 +47,14 @@
                 </label>
                 <label>Enter university:
                     <select name="university">
-                        <option value="DIKU">University of Copenhagen</option>
+                        <option value="DIKU">DIKU</option>
                     </select>
                 </label>
+                <!-- <class="error">{{ error }}</p> -->
                 <label for="pdf"> Upload pdf:
-                    <input name="pdf" id="pdf" type="text" />
+                    <input name="pdf" id="pdf" type="url"/>
                 </label>
+
             </fieldset>
             <input type="submit">
         </form>
