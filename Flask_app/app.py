@@ -208,8 +208,12 @@ def search():
         project_dict[project.id]['authors'].append(author.name)
 
     projects = list(project_dict.values())
+
+    distinct_years = db.session.query(Project.year).distinct().order_by(Project.year).all()
+    years = [year[0] for year in distinct_years]
+
     
-    return render_template('index.html', projects=projects)
+    return render_template('index.html', projects=projects, years = years)
 
 
 if __name__ == '__main__':
