@@ -15,8 +15,6 @@ you can install them using pip:
 pip install Flask Flask-SQLAlchemy psycopg2
 
 ## Database Setup in pgAdmin
-HELOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-OOOOOOOOOOOOOOO
 1) Open pgAdmin and connect to you PostgreSQL server.
 2) Create a new databade named 'DIS_test'.
 3) Update the database configuration in 'database_setup.py' (line 6) and 'app.py' (line 8) with your PostgreSQL information.  
