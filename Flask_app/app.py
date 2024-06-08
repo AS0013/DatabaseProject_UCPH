@@ -1,13 +1,10 @@
 from flask import Flask,render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-import os
 import re
 
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Choudhary6583@localhost/DIS_Test'
-# app.config['SECRET_KEY']  # some sort of secret key can added for security? gonna look into this later. 
-# https://stackoverflow.com/questions/34902378/where-do-i-get-secret-key-for-flask
 
 db = SQLAlchemy(app)
 
@@ -100,12 +97,10 @@ def addProjectPost():
     degree = request.form.get('degree')
     year = request.form.get('year')
     university = request.form.get('university')
-    # author = request.form.get('author')
     authors = [author.strip() for author in request.form.get('author').split(',')]
     supervisor = request.form.get('supervisor')
     pdf = request.form.get('pdf')
 
-    # pdf_pattern = "[a-zA-Z0-9./-]+(.pdf)"
     pdf_pattern = r"https?://[^\s]+\.pdf"
 
     if not re.match(pdf_pattern, pdf):
@@ -118,7 +113,6 @@ def addProjectPost():
     db.session.commit()
 
     # adding the author to the database with the next available id
-    # author = Author(name=author)
     for author in authors:
         author = Author(name=author)
         db.session.add(author)
@@ -126,8 +120,6 @@ def addProjectPost():
 
 
     # adding the author to the project
-    # writes = Writes(author_id=author.id, project_id=project.id)
-    # db.session.add(writes)
 
     for author in authors:
         writes = Writes(author_id=Author.query.filter_by(name=author).first().id, project_id=project.id)

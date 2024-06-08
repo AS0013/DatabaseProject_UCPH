@@ -1,5 +1,4 @@
 import psycopg2
-import sqlalchemy
 
 
 # remember to change the password to your own password and the database to your own database name
@@ -65,33 +64,6 @@ CREATE TABLE IF NOT EXISTS supervisor (
 ''')
 
 
-# fill in the data author,id from the small_diku_authors.csv
-
-# with open('small_diku_authors.csv', 'r') as f:
-#     next(f)
-#     cur.copy_from(f, 'author', sep=',')
-
-# Christian Påbøl
-# Anders Holst
-# Christian Marslev
-# Jonas Grønborg
-# Bjarke Pedersen
-# Oscar Nelin
-# William Henrich Due
-# Rune Nielsen
-# Cornelius Sevald-Krause
-# Kasper Unn Weihe
-# Tjørn Lynghus
-# Jóhann Utne
-# Henriette Naledi Winther Hansen
-# Peter Kanstrup Larsen
-# Emil Vilandt Rasmussen
-# Caroline Amalie Kierkegaard
-# Mikkel Willen
-# Søren Brix
-# Gilli Reynstind Fjallstein
-# Lotte Bruun
-# Ulrik Larsen
 
 cur.execute(''' INSERT INTO author (name) VALUES
             ('Christian Påbøl'),
@@ -119,12 +91,6 @@ cur.execute(''' INSERT INTO author (name) VALUES
             
 
 
-#  fill in the data projects from the small_diku_projects.csv
-
-# with open('small_diku_projects.csv', 'r') as f:
-#     next(f)
-#     cur.copy_from(f, 'project', sep=',')
-
 cur.execute(''' INSERT INTO project (title, degree, pdf, year, university) VALUES
     ('Two optimizations to GPU code generation in the Futhark compiler', 'MSc', 'https://futhark-lang.org/student-projects/christian-anders-scan-reduce-msc-project.pdf', 2024, 'DIKU'),
     ('Efficient Sequentialization of Parallelism', 'MSc', 'https://futhark-lang.org/student-projects/jonas-christian-effseq-msc-thesis.pdf', 2024, 'DIKU'),
@@ -144,11 +110,6 @@ cur.execute(''' INSERT INTO project (title, degree, pdf, year, university) VALUE
     ('Reverse Automatic Differentiation in Futhark', 'MSc', 'https://futhark-lang.org/student-projects/lotte-ulrik-msc-thesis.pdf', 2022, 'DIKU');
     ''')
 
-# fill in the data supervisors from the small_diku_supervisors.csv
-
-# with open('small_diku_supervisors.csv', 'r') as f:
-#     next(f)
-#     cur.copy_from(f, 'supervisor', sep=',')
 
 cur.execute(''' INSERT INTO supervisor (name) VALUES
     ('Troels Henriksen'),
@@ -181,10 +142,6 @@ CREATE TABLE IF NOT EXISTS supervises (
 ''')
 
 # inserting data into the supervises table
-
-# with open('small_diku_supervises.csv', 'r') as f:
-#     next(f)
-#     cur.copy_from(f, 'supervises', sep=',')
 
 cur.execute(''' INSERT INTO supervises (supervisor_id, project_id) VALUES
             
@@ -234,11 +191,6 @@ cur.execute('''
             (21,16);
             ''')
             
-
-
-
-
-
 
 conn.commit()
 
