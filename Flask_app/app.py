@@ -5,7 +5,7 @@ import re
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1989@localhost/DIS_Test'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Choudhary6583@localhost/DIS_Test'
 # app.config['SECRET_KEY']  # some sort of secret key can added for security? gonna look into this later. 
 # https://stackoverflow.com/questions/34902378/where-do-i-get-secret-key-for-flask
 
@@ -106,7 +106,7 @@ def addProjectPost():
     pdf = request.form.get('pdf')
 
     # pdf_pattern = "[a-zA-Z0-9./-]+(.pdf)"
-    pdf_pattern = "https?://[^\s]+\.pdf"
+    pdf_pattern = r"https?://[^\s]+\.pdf"
 
     if not re.match(pdf_pattern, pdf):
         # call error message
