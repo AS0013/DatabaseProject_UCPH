@@ -21,11 +21,13 @@ pip install Flask Flask-SQLAlchemy psycopg2
 3) Update the database configuration in 'database_setup.py' (line 6) and 'app.py' (line 8) with your PostgreSQL information.  
 
 # database_setup.py configs to perform in line 6
+```bash
 - conn = psycopg2.connect(host="localhost", database="DIS_Test", user="your_username", password="your_password", port=5432)
-
+```
 # app.py configs to perform in line 8
+```bash
 - app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://your_username:your_password@localhost/DIS_Test'
-
+```
 ## how to Run 
 1)  First, set up the database by running 'database_setup.py', you can run it by entering    python database_setup.py
     - This script will create the necessary tables and fill the database with initial data.
