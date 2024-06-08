@@ -5,7 +5,7 @@ import re
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Choudhary6583@localhost/DIS_Test'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1989@localhost/DIS_Test'
 # app.config['SECRET_KEY']  # some sort of secret key can added for security? gonna look into this later. 
 # https://stackoverflow.com/questions/34902378/where-do-i-get-secret-key-for-flask
 
