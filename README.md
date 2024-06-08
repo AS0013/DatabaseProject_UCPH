@@ -12,8 +12,9 @@ To run this project, you need the following Pythong Packages:
 
 you can install them using pip:
 
+```bash
 pip install Flask Flask-SQLAlchemy psycopg2
-
+```
 ## Database Setup in pgAdmin
 1) Open pgAdmin and connect to you PostgreSQL server.
 2) Create a new databade named 'DIS_test'.
