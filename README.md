@@ -12,6 +12,7 @@ To run this project, you need the following Pythong Packages:
 
 you can install them using pip:
 
+```bash
 pip install Flask Flask-SQLAlchemy psycopg2
 
 ## Database Setup in pgAdmin
