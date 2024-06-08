@@ -67,3 +67,5 @@ Finally, we have included an about page with a description of the project
 as well as the contact information of the developers.
 
 ## Conclusion
+
+This README file includes all relevant information about the concept of the project as well as a clear guide to using and running the Web-Application. This includes required packages and how to get them, how to setup the database using pgAdmin, how to run the database_setup and app files, and how use the functions of the application.
