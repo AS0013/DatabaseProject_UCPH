@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Page</title>
+    <title>Add a project</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -11,6 +11,7 @@
     <nav class="navbar">
         <ul>
             <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('addProject') }}">Add Project</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
         </ul>
     </nav>
@@ -27,31 +28,31 @@
 
         <form method="post" action="{{ url_for('addProject') }}">
             <fieldset>
-                <label for="title">Enter project title:
+                <label class="submitOption" for="title">Enter project title:
                     <input name="title" id="title" type="text" required />
                 </label>
-                <label for="author">Enter author:
+                <label class="submitOption" for="author">Enter author:
                     <input name="author" id="author" type="text" required />
                 </label>
-                <label for="supervisor">Enter supervisor:
+                <label class="submitOption" for="supervisor">Enter supervisor:
                     <input name="supervisor" id="supervisor" type="text" required />
                 </label>
-                <label for="year">Enter year:
+                <label class="submitOption" for="year">Enter year:
                     <input name="year" id="year" type="number" min="1900" max="2024" required />
                 </label>
-                <label>Enter degree:
+                <label class="submitOption" >Enter degree:
                     <select name="degree">
                         <option value="BSc" selected>Bachelor</option>
                         <option value="MSc">Master</option>
                     </select>
                 </label>
-                <label>Enter university:
+                <label class="submitOption" >Enter university:
                     <select name="university">
                         <option value="DIKU">DIKU</option>
                     </select>
                 </label>
                 <!-- <class="error">{{ error }}</p> -->
-                <label for="pdf"> Upload pdf:
+                <label for="pdf" class="submitOption" > Upload pdf:
                     <input name="pdf" id="pdf" type="url"/>
                 </label>
 
