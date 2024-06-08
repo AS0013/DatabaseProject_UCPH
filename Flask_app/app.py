@@ -81,9 +81,10 @@ def index():
     
     projects = list(project_dict.values())
 
-    
+    distinct_years = db.session.query(Project.year).distinct().order_by(Project.year).all()
+    years = [year[0] for year in distinct_years]
 
-    return render_template('index.html', projects=projects)
+    return render_template('index.html', projects=projects, years=years)
 
 @app.route('/about')
 def about():
@@ -184,7 +185,7 @@ def search():
     projects_with_authors = db.session.query(Project, Author).join(Writes, Project.id == Writes.project_id).join(Author, Writes.author_id == Author.id)
 
     if query:
-        projects_with_authors = projects_with_authors.filter(Project.title.ilike(f'%{query}%'))
+        projects_with_authors = projects_with_authors.filter(Project.title.ilike(f'%{query}%') | Author.name.ilike(f'%{query}%'))
     
     if level:
         projects_with_authors = projects_with_authors.filter(Project.degree == level)
@@ -195,7 +196,10 @@ def search():
     if university:
         projects_with_authors = projects_with_authors.filter(Project.university == university)
 
-    projects_with_authors = projects_with_authors.all()
+
+    project_ids = [project.id for project, author in projects_with_authors.all()]
+
+    projects_with_authors = db.session.query(Project, Author).join(Writes, Project.id == Writes.project_id).join(Author, Writes.author_id == Author.id).filter(Project.id.in_(project_ids)).all()
 
     project_dict = {}
 
