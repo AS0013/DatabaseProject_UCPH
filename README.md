@@ -14,7 +14,7 @@ Additionally we have added an "Add Project" submission page where users would be
 
 ## Required Packages 
 
-To run this project, you need the following Pythong Packages:
+To run this project, you need the following Python Packages:
 
 - Flask
 - Flask-SQLAlchemy
