@@ -1,6 +1,16 @@
 # Project Catalogue Website
 
-This Project was made as part of the 2024 Databases and Information Systems ""DIS" cousre at the University of Copenhagen
+This Project was made as part of the 2024 Databases and Information Systems ""DIS" course at the University of Copenhagen.
+
+The Web-App is made using python and flask and uses postgresql for the database.
+The Database itself is made using a "scraper" on the futhark site: "https://futhark-lang.org/publications.html#selected-student-projects"
+the scraper itself can be found in the scraping.py file.
+
+# Concept 
+
+The purpose of the project is to make it easier and more intuitive to search and find previous student's Bachelor and Master's theses. This is achieved by allowing the user to search using keywords and filters like year of publication, degree level and the specific university. We wanted to leave open the possibility of the catalogue being expanded to cover various danish universities. When the user has found a project that interests them, clicking on the project title will take them to a "Project Overview" page where various info about the project can be found, a link to a PDF file will also be attached.
+
+Additionally we have added an "Add Project" submission page where users would be able to upload their Bachelor and Master's theses to the database. Currently this "upload" means to enter a link to a pdf file, but conceptually this could -if hosted on a service like AWS or Azure- be integrated with a file storage solution, allowing for files to be uploaded to the site and stored internally.
 
 ## Required Packages 
 
