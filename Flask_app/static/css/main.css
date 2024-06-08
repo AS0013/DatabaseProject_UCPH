@@ -133,6 +133,13 @@ form input, form select, form button {
     padding-right: 15px; /* Optional: Adds some space on the right side of the list */
 }
 
+
+.submitOption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Optional: Smoothens the scrollbar */
 /* .list::-webkit-scrollbar {
     width: 10px;
