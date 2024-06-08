@@ -39,9 +39,9 @@ pip install Flask Flask-SQLAlchemy psycopg2
 - app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://your_username:your_password@localhost/DIS_Test'
 ```
 ## how to Run 
-1)  First, set up the database by running 'database_setup.py', you can run it by entering  ```bash  python database_setup.py ```
+1)  First, set up the database by running 'database_setup.py', you can run it by entering  ```py database_setup.py ```
     - This script will create the necessary tables and fill the database with initial data.
-2) Start the flask application by running 'app.py': you can run it by entering ```bash py app.py ```
+2) Start the flask application by running 'app.py': you can run it by entering ```py app.py ```
     - The application should start running and you should be able to see it on http://127.0.0.1:5000/
 
 ## How to use the website:
