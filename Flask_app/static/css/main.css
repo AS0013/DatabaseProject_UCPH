@@ -38,9 +38,13 @@ a:hover {
 }
 h1 {
     font-size: 3.2em;
-    line-height: 1.1;
-    height: 10vh;
-    margin: 0;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+}
+
+p {
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
 }
 .logo {
     height: 6em;
@@ -148,4 +152,43 @@ form input, form select, form button {
 
 /* .list::-webkit-scrollbar-thumb:hover { */
     /* background: #555; Color of the scroll thumb on hover */
-/* } 
+ 
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+}
