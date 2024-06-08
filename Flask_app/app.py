@@ -105,7 +105,8 @@ def addProjectPost():
     supervisor = request.form.get('supervisor')
     pdf = request.form.get('pdf')
 
-    pdf_pattern = "[a-zA-Z0-9./-]+(.pdf)"
+    # pdf_pattern = "[a-zA-Z0-9./-]+(.pdf)"
+    pdf_pattern = "https?://[^\s]+\.pdf"
 
     if not re.match(pdf_pattern, pdf):
         # call error message
