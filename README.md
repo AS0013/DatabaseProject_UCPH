@@ -35,6 +35,25 @@ pip install Flask Flask-SQLAlchemy psycopg2
     - The application should start running and you should be able to see it on http://127.0.0.1:5000/
 
 ## How to use the website:
+At the front page of the project catalog, you are able to view all
+projects in the database as well as use a selection of filters: you can
+search for a project by its title and author name; you can filter by level,
+that is, whether it is a bachelor's or a master's thesis; you can filter
+by year written; you can filter by university.
 
+Upon clicking on a project title, you are taken to its project page, 
+where it is possible to view all information about this project (its 
+title, author(s), level, and main supervisor) as well as project
+attachments, the project pdf specifically.
+
+It is also possible to add another project to the database in the "Add
+Project" page: simply enter a title, author(s), supervisor, year, select
+a degree and university, and include a link to the pdf. Note that if
+multiple authors need to be added, these should be comma-separated.
+Upon submission of a project (with legal inputs), it should be visible
+in the front page.
+
+Finally, we have included an about page with a description of the project
+as well as the contact information of the developers.
 
 ## Conclusion
