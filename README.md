@@ -12,6 +12,8 @@ The purpose of the project is to make it easier and more intuitive to search and
 
 Additionally we have added an "Add Project" submission page where users would be able to upload their Bachelor and Master's theses to the database. Currently this "upload" means to enter a link to a pdf file, but conceptually this could -if hosted on a service like AWS or Azure- be integrated with a file storage solution, allowing for files to be uploaded to the site and stored internally.
 
+There is an E/R diagram attached that shows how our database is structured.
+
 ## Required Packages 
 
 To run this project, you need the following Python Packages:
