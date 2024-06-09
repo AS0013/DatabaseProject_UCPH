@@ -1,35 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Project Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <h2><b>{{project.title}}</b> - {{ project.degree }} - {{ project.university }}</h2>
-        <p><b>Authors:</b><p>
-            <ul>
-                {% for author in project.authors %}
-                    <li>{{ author }}</li>
-                {% endfor %}
-            </ul>
-        <p>Advisor: {{project.supervisor}}</p>
-    </div>
-
-
-</body>
-</html>
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
