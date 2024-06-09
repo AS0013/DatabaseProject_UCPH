@@ -1,5 +1,7 @@
 from flask import Flask,render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+# from flask_graphql import GraphQLView
+# from schema import schema
 import re
 
 app = Flask(__name__)
@@ -214,6 +216,12 @@ def search():
 
     
     return render_template('index.html', projects=projects, years = years)
+
+
+# app.add_url_rule(
+#     '/graphql',
+#     view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True)
+# )
 
 
 if __name__ == '__main__':
